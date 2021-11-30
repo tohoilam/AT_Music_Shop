@@ -17,5 +17,6 @@ $(document).ready(function() {
   $createAccountPage.hide();
   $checkoutPage.hide();
   $invoicePage.hide();
-
 })
+
+

@@ -1,0 +1,39 @@
+:root {
+  --topbar-color: rgb(172, 172, 172);
+  --sidebar-color: rgb(235, 175, 175);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  height: 40px;
+  background-color: var(--topbar-color);
+}
+
+main {
+  height: calc(100vh - 40px);
+}
+
+#topBar {
+  height: 60px;
+  background-color: rgb(146, 196, 219);
+}
+
+#mainPage {
+  height: calc(100% - 60px);
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.displayNone {
+  display: none;
+}
