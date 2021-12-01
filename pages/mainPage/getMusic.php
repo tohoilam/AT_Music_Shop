@@ -24,7 +24,8 @@
     }
     elseif ($_POST['type'] == 'all') {
       while ($item = mysqli_fetch_array($response)) {
-        echo "<div class='musicRecord'>";
+        $MusicId = $item['MusicId'];
+        echo "<div id='$MusicId' class='musicRecord' onclick='goMusicInfo(this)'>";
         echo $item['MusicName'];
         echo $item['MusicImage'];
         if ($item['NewArrival'] == 1) {

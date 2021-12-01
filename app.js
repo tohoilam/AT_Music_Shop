@@ -19,4 +19,12 @@ $(document).ready(function() {
   $invoicePage.hide();
 })
 
+function changeTab(tabType, param) {
+  if (tabType === 'musicInfo') {
+    // param = music id
+    $mainPage.hide();
+    $musicInfoPage.show();
+    setMusicInfo(param);
+  }
+}
 

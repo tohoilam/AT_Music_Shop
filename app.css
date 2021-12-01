@@ -26,6 +26,15 @@ main {
   height: calc(100% - 60px);
 }
 
+#musicInfoPage {
+  height: calc(100% - 60px);
+}
+
+.pageTab {
+  height: 50px;
+  background-color: var(--topbar-color);
+}
+
 .floatLeft {
   float: left;
 }

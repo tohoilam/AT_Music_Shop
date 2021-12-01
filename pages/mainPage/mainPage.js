@@ -2,12 +2,12 @@ let $nav;
 let $musicRecordsArea;
 
 $(document).ready(function () {
-  initialize();
+  initializeMainPage();
   getMusicCategory();
   getMusicRecords();
 })
 
-function initialize() {
+function initializeMainPage() {
   $nav = $('nav');
   $musicRecordsArea = $('#musicRecordsArea');
 }
@@ -44,4 +44,8 @@ function getMusicRecords() {
   xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);
   xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlHttp.send('type=all');
+}
+
+function goMusicInfo(element) {
+  changeTab('musicInfo', element.id);
 }
