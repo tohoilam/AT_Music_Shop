@@ -1,4 +1,5 @@
 let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage;
+let $homeLinks;
 
 $(document).ready(function() {
   $topBar = $('#topBar');
@@ -9,6 +10,12 @@ $(document).ready(function() {
   $createAccountPage = $('#createAccountPage');
   $checkoutPage = $('#checkoutPage');
   $invoicePage = $('#invoicePage');
+  $homeLinks = $('.homeLink');
+  for (let i = 0; i < $homeLinks.length; i++) {
+    $homeLinks[i].addEventListener('click', () => {
+      changeTab('main', null)
+    });
+  }
 
   $mainPage.show();
   $musicInfoPage.hide();
@@ -20,7 +27,16 @@ $(document).ready(function() {
 })
 
 function changeTab(tabType, param) {
-  if (tabType === 'musicInfo') {
+  if (tabType === 'main') {
+    $mainPage.show();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+  }
+  else if(tabType === 'musicInfo') {
     // param = music id
     $mainPage.hide();
     $musicInfoPage.show();

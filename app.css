@@ -35,6 +35,10 @@ main {
   background-color: var(--topbar-color);
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 .floatLeft {
   float: left;
 }
