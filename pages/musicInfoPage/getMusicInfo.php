@@ -20,16 +20,19 @@
       $NewArrival = $item['NewArrival'];
       $MusicImage = $item['MusicImage'];
       $MusicClip = $item['MusicClip'];
-      echo "<div>$MusicId</div>";
-      echo "<div>$MusicName</div>";
-      echo "<div>$Category</div>";
-      echo "<div>$Composer</div>";
-      echo "<div>$Description</div>";
-      echo "<div>$Price</div>";
-      echo "<div>$Published</div>";
-      echo "<div>$NewArrival</div>";
+      // echo "<div id=''>"
+      echo "<div id='infoMusicId' class='displayNone'>$MusicId</div>";
+      echo "<div id='infoMusicName'>$MusicName</div>";
       echo "<div>$MusicImage</div>";
       echo "<div>$MusicClip</div>";
+      
+      echo "<div>$Composer</div>";
+      echo "<div>$Published</div>";
+      echo "<div>$Category</div>";
+      echo "<div>$Description</div>";
+      echo "<div>$Price</div>";
+      
+      
     }
   }
   else {

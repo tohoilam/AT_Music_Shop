@@ -1,5 +1,6 @@
 let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage;
 let $homeLinks;
+let globalUserId = 0;
 
 $(document).ready(function() {
   $topBar = $('#topBar');
@@ -16,6 +17,28 @@ $(document).ready(function() {
       changeTab('main', null)
     });
   }
+
+  $('#addToCartSubmit').on('click', (event) => {
+    addToCart($('#inputId').val(), $('#inputQuantity').val());
+  })
+
+  $('#signinButton').on('click', (event) => {
+    changeTab('signin', null);
+  })
+
+  $('#registerButton').on('click', (event) => {
+    changeTab('register', null);
+  })
+
+  $('#LoginForm').submit(function(event) {
+    loginFormSubmit();
+    return false;
+  })
+
+  $('#RegisterForm').submit(function(event) {
+    registerFormSubmit();
+    return false;
+  })
 
   $mainPage.show();
   $musicInfoPage.hide();
@@ -42,5 +65,30 @@ function changeTab(tabType, param) {
     $musicInfoPage.show();
     setMusicInfo(param);
   }
+  else if (tabType === 'signin') {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.show();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+    $('#loginError').text('');
+    $('#loginUsername').text('');
+    $('#loginPassword').text('');
+  }
+  else if (tabType === 'register') {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.show();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+  }
 }
 
+// $(window).bind('beforeunload', function(event) {
+//   return 'Items in cart will disappear';
+  
+// })
