@@ -2,9 +2,9 @@ let $musicInformation;
 let $subLink;
 // let $inputId;
 
-function setMusicInfo(MusicId) {
+async function setMusicInfo(MusicId) {
   initializeMusicInfoPage();
-  getMusicInfo(MusicId);
+  await getMusicInfo(MusicId);
 }
 
 function initializeMusicInfoPage() {
@@ -14,25 +14,44 @@ function initializeMusicInfoPage() {
   console.log($('#addToCartSubmit'));
 }
 
-function getMusicInfo(musicId) {
-  let xmlHttp = new XMLHttpRequest();
-  if (!xmlHttp) {
-    alert('Cannot create XMLHttpRequest object!!');
-  }
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-      let response = xmlHttp.responseText;
+async function getMusicInfo(musicId) {
+  try {
+    let response = await fetch(`pages/musicInfoPage/getMusicInfo.php?musicId=${musicId}`);
+    if (response.status == 200) {
+      let data = await response.text();
 
-      $musicInformation.empty().append(response);
+      $musicInformation.empty().append(data);
       let musicName = $('#infoMusicName').text();
       let musicId = $('#infoMusicId').text();
       $subLink.text(musicName);
       $inputId.val(musicId);
     }
+    else {
+      alert("HTTP return status:", response.status);
+    }
   }
-  xmlHttp.open('POST', 'pages/musicInfoPage/getMusicInfo.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send(`musicId=${musicId}`);
+  catch (error) {
+    alert("Fetch music info resulted in an Error!")
+  }
+  // let xmlHttp = new XMLHttpRequest();
+  // if (!xmlHttp) {
+  //   alert('Cannot create XMLHttpRequest object!!');
+  // }
+  // xmlHttp.onreadystatechange = function() {
+  //   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+  //     let response = xmlHttp.responseText;
+
+  //     $musicInformation.empty().append(response);
+  //     let musicName = $('#infoMusicName').text();
+  //     let musicId = $('#infoMusicId').text();
+  //     $subLink.text(musicName);
+  //     $inputId.val(musicId);
+  //   }
+  // }
+  // xmlHttp.open('POST', 'pages/musicInfoPage/getMusicInfo.php', true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // xmlHttp.send(`musicId=${musicId}`);
+
 }
 
 async function addToCart(musicId, quantity) {

@@ -134,10 +134,11 @@ async function changeTab(tabType, param) {
     
   }
   else if(tabType === 'musicInfo') {
-    // param = music id
+    $loading.show();
+    await setMusicInfo(param);
     $mainPage.hide();
     $musicInfoPage.show();
-    setMusicInfo(param);
+    
   }
   else if (tabType === 'signin') {
     $mainPage.hide();

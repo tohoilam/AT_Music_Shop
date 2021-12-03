@@ -2,7 +2,7 @@
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
   
-  $musicId = $_POST['musicId'];
+  $musicId = $_GET['musicId'];
   
   $query = "SELECT * FROM Music WHERE MusicId=$musicId;";
   $response = mysqli_query($connection, $query)
@@ -20,7 +20,7 @@
       $NewArrival = $item['NewArrival'];
       $MusicImage = $item['MusicImage'];
       $MusicClip = $item['MusicClip'];
-      // echo "<div id=''>"
+      
       echo "<div id='infoMusicId' class='displayNone'>$MusicId</div>";
       echo "<div id='infoMusicName'>$MusicName</div>";
       echo "<div>$MusicImage</div>";
