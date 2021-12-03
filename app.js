@@ -30,6 +30,10 @@ $(document).ready(function() {
     changeTab('register', null);
   })
 
+  $('#cartButton').on('click', (event) => {
+    changeTab('cart', null);
+  })
+
   $('#LoginForm').submit(function(event) {
     loginFormSubmit();
     return false;
@@ -85,6 +89,16 @@ function changeTab(tabType, param) {
     $createAccountPage.show();
     $checkoutPage.hide();
     $invoicePage.hide();
+  }
+  else if (tabType === 'cart') {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.show();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+    // cartInitialize();
   }
 }
 

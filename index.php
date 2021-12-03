@@ -1,3 +1,11 @@
+<?php
+  
+
+  session_start();
+  // require 'pages/cartPage/getCart.php';
+  
+  $_SESSION['testing'] = 'yeay';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +18,7 @@
   <script src="pages/musicInfoPage/musicInfoPage.js"></script>
   <script src="pages/loginPage/loginPage.js"></script>
   <script src="pages/registerPage/registerPage.js"></script>
+  <script src="pages/cartPage/cartPage.js"></script>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="pages/mainPage/mainPage.css">
 
@@ -32,7 +41,11 @@
         </div>
       </div>
       <div id="musicRecordsArea"></div>
-      
+      <?php 
+        $testing = $_SESSION['testing'];
+        echo "yay";
+        echo "$testing";
+      ?>
     </div>
     <div id="musicInfoPage">
       <div id="musicInfoPageHeading" class="pageTab">
@@ -51,7 +64,9 @@
       </div>
     </div>
     <div id="cartPage">
-      Cart Page
+      My Shopping Cart
+      <!-- <div id="cartArea"></div> -->
+      <?php require 'pages/cartPage/getCart.php'; ?>
     </div>
     <div id="loginPage">
       Login Page
