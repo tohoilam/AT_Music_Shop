@@ -33,25 +33,6 @@ async function getMusicInfo(musicId) {
   catch (error) {
     alert("Fetch music info resulted in an Error!")
   }
-  // let xmlHttp = new XMLHttpRequest();
-  // if (!xmlHttp) {
-  //   alert('Cannot create XMLHttpRequest object!!');
-  // }
-  // xmlHttp.onreadystatechange = function() {
-  //   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-  //     let response = xmlHttp.responseText;
-
-  //     $musicInformation.empty().append(response);
-  //     let musicName = $('#infoMusicName').text();
-  //     let musicId = $('#infoMusicId').text();
-  //     $subLink.text(musicName);
-  //     $inputId.val(musicId);
-  //   }
-  // }
-  // xmlHttp.open('POST', 'pages/musicInfoPage/getMusicInfo.php', true);
-  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // xmlHttp.send(`musicId=${musicId}`);
-
 }
 
 async function addToCart(musicId, quantity) {
@@ -62,33 +43,33 @@ async function addToCart(musicId, quantity) {
     return
   }
 
-  let UserId = await getUserId();
-  if (UserId) {
-    console.log('Send api to Cart with UserId:', UserId);
-    let xmlHttp = new XMLHttpRequest();
-    if (!xmlHttp) {
-      alert('Cannot create XMLHttpRequest object!!');
-    }
-    console.log('Send')
-    xmlHttp.onreadystatechange = function() {
-      if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        let response = xmlHttp.responseText;
-        if (response === 'done') {
-          inputQuantity.value = '';
-        }
-        else if (response === 'No_UserId_In_Session') {
-          alert('User Id is not set in Session');
-        }
-        else {
-          alert('Failed adding item into cart!');
-        }
+  let xmlHttp = new XMLHttpRequest();
+  if (!xmlHttp) {
+    alert('Cannot create XMLHttpRequest object!!');
+  }
+  
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      let response = xmlHttp.responseText;
+      if (response === 'done') {
+        inputQuantity.value = '';
+      }
+      else if (response === 'No_UserId_In_Session') {
+        alert('User Id is not set in Session');
+      }
+      else {
+        alert('Failed adding item!');
       }
     }
-    xmlHttp.open('POST', 'pages/musicInfoPage/addToCart.php', true);
-    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlHttp.send(`musicId=${musicId}&quantity=${quantity}`);
+  }
+  xmlHttp.open('POST', 'pages/musicInfoPage/addToCart.php', true);
+  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  let UserId = await getUserId();
+  if (UserId) {
+    xmlHttp.send(`mode=user&musicId=${musicId}&quantity=${quantity}`);
   }
   else {
-    console.log("not logged in");
+    xmlHttp.send(`mode=guest&musicId=${musicId}&quantity=${quantity}`);
   }
 }
