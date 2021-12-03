@@ -93,6 +93,9 @@
     <div id="invoicePage">
       Invoice Page
     </div>
+    <div id="loading">
+      Loading...
+    </div>
   </main>
 </body>
 </html>

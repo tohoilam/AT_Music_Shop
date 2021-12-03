@@ -1,9 +1,54 @@
-let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage;
+let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading;
 let $homeLinks;
 let globalUserId = 0;
 let globalSessionId = 0;
 
+async function getUserId() {
+  let response = await fetch('utilities/getUserId.php');
+  try {
+    if (response.status == 200) {
+      let data = await response.text();
+      console.log(data);
+      if (data == "0") {
+        return null;
+      }
+      else {
+        return data;
+      }
+    }
+    else {
+      alert('HTTP return status:', response.status);
+    }
+  }
+  catch (error) {
+    alert('Fetch UserId from session Error');
+  }
+  
+  // let xmlHttp = new XMLHttpRequest();
+  // if (!xmlHttp) {
+  //   alert('Cannot create XMLHttpRequest object!!');
+  // }
+
+  // xmlHttp.onreadystatechange = function() {
+
+  //   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+  //     let response = xmlHttp.responseText;
+  //     console.log('Got response', response);
+  //     if (response == "0") {
+  //       return null;
+  //     }
+  //     else {
+  //       return response
+  //     }
+  //   }
+  // }
+  // xmlHttp.open('POST', 'utilities/getUserId.php', true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // xmlHttp.send();
+}
+
 $(document).ready(function() {
+
   $topBar = $('#topBar');
   $mainPage = $('#mainPage');
   $musicInfoPage = $('#musicInfoPage');
@@ -13,7 +58,8 @@ $(document).ready(function() {
   $checkoutPage = $('#checkoutPage');
   $invoicePage = $('#invoicePage');
   $homeLinks = $('.homeLink');
-  $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
+  $loading = $('#loading');
+  // $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
   for (let i = 0; i < $homeLinks.length; i++) {
     $homeLinks[i].addEventListener('click', () => {
       changeTab('main', null)
@@ -47,16 +93,27 @@ $(document).ready(function() {
     return false;
   })
 
-  $mainPage.show();
+  $('#registerButton').hide();
+  $('#signinButton').hide();
+  $('#logoutButton').hide();
+
+  changeTab('main', null);
+})
+
+async function changeTab(tabType, param) {
+  $mainPage.hide();
   $musicInfoPage.hide();
   $cartPage.hide();
   $loginPage.hide();
   $createAccountPage.hide();
   $checkoutPage.hide();
   $invoicePage.hide();
-})
+  $loading.show();
 
-function changeTab(tabType, param) {
+  let userId = await getUserId();
+
+  $loading.hide();
+
   if (tabType === 'main') {
     $mainPage.show();
     $musicInfoPage.hide();
@@ -65,6 +122,18 @@ function changeTab(tabType, param) {
     $createAccountPage.hide();
     $checkoutPage.hide();
     $invoicePage.hide();
+    
+    if (userId) {
+      $('#registerButton').hide();
+      $('#signinButton').hide();
+      $('#logoutButton').show();
+    }
+    else {
+      $('#registerButton').show();
+      $('#signinButton').show();
+      $('#logoutButton').hide();
+    }
+    
   }
   else if(tabType === 'musicInfo') {
     // param = music id
