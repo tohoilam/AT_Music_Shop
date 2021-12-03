@@ -33,5 +33,5 @@ function loginFormSubmit() {
   }
   xmlHttp.open('POST', 'pages/loginPage/verifyLogin.php', true);
   xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send(`username=${username}&password=${password}&session_id=${globalSessionId}`);
+  xmlHttp.send(`username=${username}&password=${password}`);
 }

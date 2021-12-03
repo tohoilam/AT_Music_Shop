@@ -2,9 +2,6 @@
 
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $session_id = $_POST['session_id'];
-
-  session_id($session_id);
   session_start();
 
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')

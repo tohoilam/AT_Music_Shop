@@ -1,11 +1,9 @@
 <?php
-  session_id($_POST['session_id']);
   session_start();
 
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
 
-  
   $username = $_SESSION['UserId'];
 
   echo "$username";

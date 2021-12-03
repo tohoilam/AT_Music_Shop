@@ -14,5 +14,5 @@ function cartInitialize() {
   }
   xmlHttp.open('POST', 'pages/cartPage/getCart.php', true);
   xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send(`username=${globalUserId}&session_id=${globalSessionId}`);
+  xmlHttp.send();
 }
