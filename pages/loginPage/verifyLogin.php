@@ -7,9 +7,6 @@
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
 
-  
-
-
   $query = "SELECT * FROM Login WHERE UserId = '$username';";
   $response = mysqli_query($connection, $query)
     or die("Query Error!".mysqli_error($connection));

@@ -1,6 +1,4 @@
 <?php
-  
-
   session_start();
 ?>
 <!DOCTYPE html>
@@ -39,11 +37,6 @@
         </div>
       </div>
       <div id="musicRecordsArea"></div>
-      <?php 
-        $testing = $_SESSION['testing'];
-        echo "yay";
-        echo "$testing";
-      ?>
     </div>
     <div id="musicInfoPage">
       <div id="musicInfoPageHeading" class="pageTab">

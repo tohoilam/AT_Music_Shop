@@ -15,7 +15,6 @@ function loginFormSubmit() {
       let response = xmlHttp.responseText;
       
       if (response === 'done') {
-        globalUserId = username;
         changeTab('main', null);
       }
       else if (response === 'wrong_password') {

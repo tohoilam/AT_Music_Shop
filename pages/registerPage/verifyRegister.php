@@ -1,4 +1,6 @@
 <?php
+
+  session_start();
   
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
@@ -20,7 +22,7 @@
       or die("Query Error!".mysqli_error($connection));
     
     # Set session and Redirect!
-    $_SESSION['UserId']=$item['UserId'];
+    $_SESSION['UserId']=$username;
     echo "done";
   }
   

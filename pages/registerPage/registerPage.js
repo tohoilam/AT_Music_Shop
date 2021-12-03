@@ -3,6 +3,7 @@
 function registerFormSubmit() {
   let username = $('#RegisterForm #registerUsername').val();
   let password = $('#RegisterForm #registerPassword').val();
+
   let xmlHttp = new XMLHttpRequest();
   if (!xmlHttp) {
     alert('Cannot create XMLHttpRequest object!!');
@@ -12,8 +13,8 @@ function registerFormSubmit() {
 
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
       let response = xmlHttp.responseText;
+      
       if (response === 'done') {
-        globalUserId = username;
         changeTab('main', null);
       }
       else if (response === 'user_exists') {

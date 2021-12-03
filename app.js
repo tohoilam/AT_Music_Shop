@@ -1,7 +1,5 @@
 let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading;
 let $homeLinks;
-let globalUserId = 0;
-let globalSessionId = 0;
 
 async function getUserId() {
   let response = await fetch('utilities/getUserId.php');
