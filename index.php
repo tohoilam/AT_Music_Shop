@@ -62,22 +62,23 @@
       Login Page
       <form id='LoginForm'>
         <label for='username'>Username</label>
-        <input type='text' id='loginUsername' name='username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+        <input type='text' id='loginUsername' name='username' placeholder='Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
         <label for='password'>Password</label>
-        <input type='text' id='loginPassword' name='password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
-        <input id='loginFormButton' class='buttons' type='submit' value='Submit'>
-        <div id="loginError"></div>
+        <input type='password' id='loginPassword' name='password' placeholder='Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+        <input id='loginFormButton' class='buttons' type='submit' value='SUBMIT'>
+        <div id='createAccountFromLogin' class='buttons'>CREATE</div>
       </form>
     </div>
+    <div id='errorPage'><h1></h1></div>
     <div id="createAccountPage">
       Create Account Page
       <form id='RegisterForm'>
         <label for='username'>Desired Username</label>
-        <input type='text' id='registerUsername' name='username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+        <input type='text' id='registerUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
         <label for='password'>Desierd Password</label>
-        <input type='text' id='registerPassword' name='password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
-        <input id='registerFormButton' type='submit' value='Submit'>
-        <div id="registerError"></div>
+        <input type='password' id='registerPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+        <input id='registerFormButton' class='buttons' type='submit' value='CONFIRM'>
+        <div id='loginFromCreateAccount' class='buttons'>BACK</div>
       </form>
     </div>
     <div id="checkoutPage">

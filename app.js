@@ -1,4 +1,4 @@
-let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading;
+let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading, $errorPage;
 let $homeLinks;
 
 async function getUserId() {
@@ -57,6 +57,7 @@ $(document).ready(function() {
   $invoicePage = $('#invoicePage');
   $homeLinks = $('.homeLink');
   $loading = $('#loading');
+  $errorPage = $('#errorPage');
   // $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
   for (let i = 0; i < $homeLinks.length; i++) {
     $homeLinks[i].addEventListener('click', () => {
@@ -91,6 +92,14 @@ $(document).ready(function() {
     return false;
   })
 
+  $('#createAccountFromLogin').on('click', (event) => {
+    changeTab('register', null);
+  })
+
+  $('#loginFromCreateAccount').on('click', (event) => {
+    changeTab('signin', null);
+  })
+
   $('#registerButton').hide();
   $('#signinButton').hide();
   $('#logoutButton').hide();
@@ -106,6 +115,7 @@ async function changeTab(tabType, param) {
   $createAccountPage.hide();
   $checkoutPage.hide();
   $invoicePage.hide();
+  $errorPage.hide();
   $loading.show();
 
   let userId = await getUserId();
@@ -120,6 +130,7 @@ async function changeTab(tabType, param) {
     $createAccountPage.hide();
     $checkoutPage.hide();
     $invoicePage.hide();
+    $errorPage.hide();
     
     if (userId) {
       $('#registerButton').hide();
@@ -138,7 +149,8 @@ async function changeTab(tabType, param) {
     await setMusicInfo(param);
     $mainPage.hide();
     $musicInfoPage.show();
-    
+    $errorPage.hide();
+    $loading.hide();
   }
   else if (tabType === 'signin') {
     $mainPage.hide();
@@ -148,7 +160,7 @@ async function changeTab(tabType, param) {
     $createAccountPage.hide();
     $checkoutPage.hide();
     $invoicePage.hide();
-    $('#loginError').text('');
+    $errorPage.hide();
     $('#loginUsername').text('');
     $('#loginPassword').text('');
   }
@@ -160,6 +172,19 @@ async function changeTab(tabType, param) {
     $createAccountPage.show();
     $checkoutPage.hide();
     $invoicePage.hide();
+    $errorPage.hide();
+    $('#loginUsername').text('');
+    $('#loginPassword').text('');
+  }
+  else if (tabType === 'errorPage') {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+    $errorPage.show();
   }
   else if (tabType === 'cart') {
     $mainPage.hide();
@@ -169,6 +194,7 @@ async function changeTab(tabType, param) {
     $createAccountPage.hide();
     $checkoutPage.hide();
     $invoicePage.hide();
+    $errorPage.hide();
   }
 }
 

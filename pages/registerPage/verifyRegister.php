@@ -21,8 +21,8 @@
     $response = mysqli_query($connection, $query)
       or die("Query Error!".mysqli_error($connection));
     
-    # Set session and Redirect!
-    $_SESSION['UserId']=$username;
+    # Redirect!
+    // $_SESSION['UserId']=$username;
     echo "done";
   }
   

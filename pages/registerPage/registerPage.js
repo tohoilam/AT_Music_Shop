@@ -15,13 +15,27 @@ function registerFormSubmit() {
       let response = xmlHttp.responseText;
       
       if (response === 'done') {
-        changeTab('main', null);
+        $('#errorPage > h1').text('Account created! Welcome');
+        changeTab('errorPage', null);
+
+        setTimeout(() => {
+          $('#registerUsername').val('');
+          $('#registerPassword').val('');
+          changeTab('signin', null);
+          $('#registerUsername').focus();
+        }, 3000);
       }
       else if (response === 'user_exists') {
-        $('#registerError').text('Username existed! Please login or choose a different username!');
-        $('#registerUsername').val('');
-        $('#registerPassword').val('');
-        $('#registerUsername').focus();
+        $('#errorPage > h1').text('Account already existed');
+        changeTab('errorPage', null);
+
+        setTimeout(() => {
+          $('#registerUsername').val('');
+          $('#registerPassword').val('');
+          changeTab('register', null);
+          $('#registerUsername').focus();
+        }, 3000);
+
       }
     }
   }

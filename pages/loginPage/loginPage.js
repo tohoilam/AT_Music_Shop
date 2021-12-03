@@ -17,16 +17,17 @@ function loginFormSubmit() {
       if (response === 'done') {
         changeTab('main', null);
       }
-      else if (response === 'wrong_password') {
-        $('#loginError').text('Incorrect Password');
-        $('#loginPassword').val('');
-        $('#loginPassword').focus();
-      }
       else {
-        $('#loginError').text('Account doesn\'t exist! Please make sure you enter an existing account!');
-        $('#loginUsername').val('');
-        $('#loginPassword').val('');
-        $('#loginUsername').focus();
+        $('#errorPage > h1').text('Invalid login, please login again.');
+        changeTab('errorPage', null);
+
+        setTimeout(() => {
+          $('#loginUsername').val('');
+          $('#loginPassword').val('');
+          changeTab('signin', null);
+          $('#loginUsername').focus();
+        }, 3000);
+        
       }
     }
   }
