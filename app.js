@@ -1,6 +1,7 @@
 let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage;
 let $homeLinks;
 let globalUserId = 0;
+let globalSessionId = 0;
 
 $(document).ready(function() {
   $topBar = $('#topBar');
@@ -12,6 +13,7 @@ $(document).ready(function() {
   $checkoutPage = $('#checkoutPage');
   $invoicePage = $('#invoicePage');
   $homeLinks = $('.homeLink');
+  $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
   for (let i = 0; i < $homeLinks.length; i++) {
     $homeLinks[i].addEventListener('click', () => {
       changeTab('main', null)
@@ -32,6 +34,7 @@ $(document).ready(function() {
 
   $('#cartButton').on('click', (event) => {
     changeTab('cart', null);
+    cartInitialize();
   })
 
   $('#LoginForm').submit(function(event) {
@@ -98,7 +101,6 @@ function changeTab(tabType, param) {
     $createAccountPage.hide();
     $checkoutPage.hide();
     $invoicePage.hide();
-    // cartInitialize();
   }
 }
 

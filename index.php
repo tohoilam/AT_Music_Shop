@@ -2,9 +2,6 @@
   
 
   session_start();
-  // require 'pages/cartPage/getCart.php';
-  
-  $_SESSION['testing'] = 'yeay';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +35,7 @@
           <div id='cartButton' class='buttons floatRight'>Cart</div>
           <div id='registerButton' class='buttons floatRight'>Register</div>
           <div id='signinButton' class='buttons floatRight'>Sign in</div>
+          <div id='logoutButton' class='buttons floatRight'><a href='utilities/logout.php'>Logout</a></div>
         </div>
       </div>
       <div id="musicRecordsArea"></div>
@@ -65,8 +63,7 @@
     </div>
     <div id="cartPage">
       My Shopping Cart
-      <!-- <div id="cartArea"></div> -->
-      <?php require 'pages/cartPage/getCart.php'; ?>
+      <div id="cartArea"></div>
     </div>
     <div id="loginPage">
       Login Page

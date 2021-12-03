@@ -1,10 +1,17 @@
 <?php
 
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $session_id = $_POST['session_id'];
+
+  session_id($session_id);
+  session_start();
+
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  
+
 
   $query = "SELECT * FROM Login WHERE UserId = '$username';";
   $response = mysqli_query($connection, $query)
