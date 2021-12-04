@@ -42,7 +42,12 @@
       $_SESSION['GuestCart'] = serialize($data);
     }
 
-    echo "done";
+    $totalQuantity = 0;
+    foreach ($data as $key => $item) {
+      $totalQuantity += $item[3];
+    }
+
+    echo "done" . $totalQuantity;
   }
   
 

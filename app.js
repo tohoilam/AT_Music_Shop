@@ -127,6 +127,7 @@ $(document).ready(function() {
   $('#registerButton').hide();
   $('#signinButton').hide();
   $('#logoutButton').hide();
+  $('#cartButton').hide();
 
   changeTab('main', null);
 })
@@ -148,6 +149,8 @@ async function changeTab(tabType, param, toLoad = true) {
 
   let userId = await getUserId();
 
+  await changeCartTotal();
+
   $loading.hide();
 
   if (tabType === 'main') {
@@ -167,11 +170,13 @@ async function changeTab(tabType, param, toLoad = true) {
       $('#registerButton').hide();
       $('#signinButton').hide();
       $('#logoutButton').show();
+      $('#cartButton').show();
     }
     else {
       $('#registerButton').show();
       $('#signinButton').show();
       $('#logoutButton').hide();
+      $('#cartButton').show();
     }
     
   }
@@ -231,6 +236,28 @@ async function changeTab(tabType, param, toLoad = true) {
     $invoicePage.hide();
     $errorPage.hide();
     $topBar.show();
+  }
+}
+
+async function changeCartTotal() {
+  try {
+    let response = await fetch('utilities/getCartTotal.php');
+    if (response.status == 200) {
+      let data = await response.text();
+      if (data.substring(0, 4) === 'done') {
+        let totalQuantity = data.substring(4);
+        $('#cartButton').text(`Cart (${totalQuantity})`)
+      }
+      else {
+        alert('Failed changing cart total!');
+      }
+    }
+    else {
+      alert('HTTP return status:', response.status);
+    }
+  }
+  catch (error) {
+    alert('Fetch cart total resulted in an error!');
   }
 }
 
