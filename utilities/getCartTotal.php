@@ -4,6 +4,9 @@
   if (isset($_SESSION['UserId'])) {
     $userId = $_SESSION['UserId'];
 
+    $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
+      or die("Connection Error! ".mysqli_connect_error());
+
     $query = "SELECT * FROM Cart WHERE UserId = '$userId';";
     $response = mysqli_query($connection, $query)
       or die("Query Error!".mysqli_error($connection));

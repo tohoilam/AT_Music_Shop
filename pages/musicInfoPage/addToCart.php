@@ -11,11 +11,25 @@
 
     if (isset($_SESSION['UserId'])) {
       $userId = $_SESSION['UserId'];
-
-      $query = "INSERT INTO Cart VALUES (NULL, '$musicId', '$userId', '$quantity');";
+      $query = "SELECT * FROM Cart WHERE UserId = '$userId' AND MusicId = '$musicId';";
       $response = mysqli_query($connection, $query)
         or die("Query Error!".mysqli_error($connection));
+      
+      if (mysqli_num_rows($response) > 0) {
+        $item = mysqli_fetch_array($response);
+        $tempQuantity = $item['Quantity'];
+        $quantity += $tempQuantity;
 
+        $query = "UPDATE Cart SET Quantity = $quantity WHERE MusicId = '$musicId' AND UserId = '$userId';";
+        $response = mysqli_query($connection, $query)
+          or die("Query Error!".mysqli_error($connection));
+      }
+      else {
+        $query = "INSERT INTO Cart VALUES (NULL, '$musicId', '$userId', '$quantity');";
+        $response = mysqli_query($connection, $query)
+          or die("Query Error!".mysqli_error($connection));
+      }
+      
       $query = "SELECT * FROM Cart WHERE UserId = '$userId';";
       $response = mysqli_query($connection, $query)
         or die("Query Error!".mysqli_error($connection));
@@ -38,7 +52,17 @@
     }
     else {
       $data = unserialize($_SESSION['GuestCart']);
-      array_push($data, array(0, $musicId, $userId, $quantity));
+      $musicExisted = false;
+      foreach ($data as $key => $item) {
+        if ($item[1] == $musicId) {
+          $data[$key][3] += $quantity;
+          $musicExisted = true;
+          break;
+        }
+      }
+      if (! $musicExisted) {
+        array_push($data, array(0, $musicId, $userId, $quantity));
+      }
       $_SESSION['GuestCart'] = serialize($data);
     }
 
