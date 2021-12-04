@@ -5,4 +5,33 @@
 
 #musicInfoPageArea {
   height: calc(100% - 50px);
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+#infoMusicName {
+  color: var(--sidebar-color);
+}
+
+#infoMusicImageBox {
+  height: 200px;
+  margin: 20px;
+  margin-bottom: 0px;
+}
+
+#infoMusicImageBox > img {
+  height: 100%;
+  width: auto;
+}
+
+audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+.infoMusicInfoItems {
+  margin: 10px 0px;
+}
+
+#infoPrice {
+  font-weight: bold;
 }

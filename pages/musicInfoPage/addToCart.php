@@ -16,7 +16,16 @@
       $response = mysqli_query($connection, $query)
         or die("Query Error!".mysqli_error($connection));
 
-      echo "done";
+      $query = "SELECT * FROM Cart WHERE UserId = '$userId';";
+      $response = mysqli_query($connection, $query)
+        or die("Query Error!".mysqli_error($connection));
+
+      $totalQuantity = 0;
+      while ($item = mysqli_fetch_array($response)) {
+        $totalQuantity += $item['Quantity'];
+      }
+
+      echo "done" . $totalQuantity;
     }
     else {
       echo "No_UserId_In_Session";

@@ -16,6 +16,7 @@
   <script src="pages/cartPage/cartPage.js"></script>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="pages/mainPage/mainPage.css">
+  <link rel="stylesheet" href="pages/musicInfoPage/musicInfoPage.css">
 
   <title>COMP3322_Project</title>
 </head>
@@ -28,7 +29,7 @@
         <div id='searchButton' class='buttons pointer floatLeft'>Search</div>
       </div>
       <div id='buttonsMenu'>
-        <div id='cartButton' class='buttons floatRight'>Cart</div>
+        <div id='cartButton' class='buttons floatRight'>Cart (0)</div>
         <div id='registerButton' class='buttons floatRight'>Register</div>
         <div id='signinButton' class='buttons floatRight'>Sign in</div>
         <div id='logoutButton' class='buttons floatRight'><a href='utilities/logout.php'>Logout</a></div>
@@ -55,15 +56,16 @@
           <span class="homeLink link pointer">Home</span> <span id="musicInfoLinkPart">&nbsp> &nbsp<span class="subLink link pointer"></span></span>
         </div>
         <div id='musicInfoPageHeading' class='pageHeadings'>
-          Music Info Page
+          Music Info
         </div>
       </div>
       <div id="musicInfoPageArea">
         <div id="musicInformation"></div>
         <div id='addToCard' onsubmit="addToCart()">
-          Order: <input id='inputQuantity' type='text' name='quantity' value='1' pattern='[1-9]|[1-9][0-9]|[1-9][0-9][0-9]' required>
+          <div id='orderText' class='floatLeft'>Order:&nbsp </div>
+          <input id='inputQuantity' class='floatLeft' type='text' name='quantity' value='1' pattern='[1-9]|[1-9][0-9]|[1-9][0-9][0-9]' required>
           <input id='inputId' type="hidden" name='id' value='1'>
-          <div id='addToCartSubmit' class='buttons'>Submit</div>
+          <div id='addToCartSubmit' class='buttons floatLeft'>Add to Cart</div>
         </div>
       </div>
     </div>

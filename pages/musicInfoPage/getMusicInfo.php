@@ -23,14 +23,21 @@
       
       echo "<div id='infoMusicId' class='displayNone'>$MusicId</div>";
       echo "<div id='infoMusicName'>$MusicName</div>";
-      echo "<div>$MusicImage</div>";
-      echo "<div>$MusicClip</div>";
+      echo "<div id='infoMusicImageBox'>";
+      echo "<img src='media/$MusicImage' alt='$MusicName' title='$MusicName' />";
+      echo "</div>";
+
+      echo "<audio autoplay controls>";
+      echo "<source src='media/$MusicClip' type='audio/mp3'>";
+      echo "</audio>";
       
-      echo "<div>$Composer</div>";
-      echo "<div>$Published</div>";
-      echo "<div>$Category</div>";
-      echo "<div>$Description</div>";
-      echo "<div>$Price</div>";
+      echo "<div id='infoMusicInfo'>";
+      echo "<div class='infoMusicInfoItems'>Composer: $Composer</div>";
+      echo "<div class='infoMusicInfoItems'>Published: $Published</div>";
+      echo "<div class='infoMusicInfoItems'>Category: $Category</div>";
+      echo "<div class='infoMusicInfoItems'>Description: $Description</div>";
+      echo "<div id='infoPrice' class='infoMusicInfoItems'>Price: $ $Price</div>";
+      echo "</div>";
       
       
     }

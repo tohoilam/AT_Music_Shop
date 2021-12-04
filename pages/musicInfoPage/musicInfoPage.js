@@ -51,8 +51,10 @@ async function addToCart(musicId, quantity) {
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
       let response = xmlHttp.responseText;
-      if (response === 'done') {
+      if (response.substring(0, 4) === 'done') {
         inputQuantity.value = '';
+        let totalQuantity = response.substring(4);
+        $('#cartButton').text(`Cart (${totalQuantity})`)
       }
       else if (response === 'No_UserId_In_Session') {
         alert('User Id is not set in Session');
