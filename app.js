@@ -6,7 +6,6 @@ async function getUserId() {
   try {
     if (response.status == 200) {
       let data = await response.text();
-      console.log(data);
       if (data == "0") {
         return null;
       }
@@ -101,13 +100,15 @@ $(document).ready(function() {
   })
 
   $('#searchButton').on('click', async (event) => {
-    await changeTab('main', null);
+    await changeTab('main', null, false);
     let stringInput = $('#searchInput').val();
     let inputList = stringInput.split(' ');
     
     $('#musicRecordsArea > div').each(function() {
       let $musicBox = $(this);
       $musicBox.hide();
+      
+      $('#mainPageHeading').text('Searching Results');
 
       let musicName = $musicBox.children('.mainMusicName').text();
       let composer = $musicBox.children('.mainMusicInfo').children('.mainComposerBox').children('.mainComposer').text();
@@ -129,17 +130,20 @@ $(document).ready(function() {
   changeTab('main', null);
 })
 
-async function changeTab(tabType, param) {
-  // $mainPage.hide();
-  // $musicInfoPage.hide();
-  // $cartPage.hide();
-  // $loginPage.hide();
-  // $createAccountPage.hide();
-  // $checkoutPage.hide();
-  // $invoicePage.hide();
-  // $errorPage.hide();
-  // // $topBar.hide();
-  // $loading.show();
+async function changeTab(tabType, param, toLoad = true) {
+  if (toLoad) {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.hide();
+    $errorPage.hide();
+    // $topBar.hide();
+    $loading.show();
+  }
+  
 
   let userId = await getUserId();
 
@@ -187,7 +191,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
-    $topBar.hide();
+    $topBar.show();
     $('#loginUsername').text('');
     $('#loginPassword').text('');
   }
@@ -200,7 +204,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
-    $topBar.hide();
+    $topBar.show();
     $('#loginUsername').text('');
     $('#loginPassword').text('');
   }

@@ -87,5 +87,5 @@ async function getMusicRecords() {
 }
 
 function goMusicInfo(element) {
-  changeTab('musicInfo', element.id);
+  changeTab('musicInfo', element.parentElement.id);
 }
