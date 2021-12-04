@@ -71,7 +71,7 @@
       </div>
     </div>
     <div id="cartPage">
-      My Shopping Cart
+      <div id='cartPageHeading' class='pageHeadings'>My Shopping Cart</div>
       <div id="cartArea"></div>
     </div>
     <div id="loginPage">

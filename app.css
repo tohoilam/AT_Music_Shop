@@ -38,6 +38,11 @@ main {
   height: calc(100% - 80px);
 }
 
+#cartPage {
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
 .pageHeader {
   height: 50px;
   background-color: var(--topbar-color);
@@ -74,6 +79,8 @@ main {
 
 .pageHeadings {
   font-size: 1.7rem;
+  color: red;
+  height: 35px;
 }
 
 #searchButton {
@@ -108,6 +115,8 @@ main {
   display: none;
 }
 
-.pageHeadings {
-  color: red; 
+.overflowBox {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
 }

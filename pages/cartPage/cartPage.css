@@ -1,7 +1,22 @@
 
+#cartArea {
+  width: calc(100% - 40px);
+  height: calc(100% - 35px - 60px - 20px);
+  margin: 0px 20px;
+}
+
 .cartItems {
-  box-sizing: 100%;
-  width: 100%;
-  margin: 20px;
+  width: calc(100% - 40px);
   border-bottom: 1px solid black;
+  padding: 10px 20px;
+}
+
+.cartItemInfo {
+  padding: 5px 0px;
+}
+
+.cartTotalPrice {
+  height: 50px;
+  padding: 10px 0px;
+  margin-bottom: 10px;
 }

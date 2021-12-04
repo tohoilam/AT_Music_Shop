@@ -56,6 +56,7 @@
       }
     }
   }
+  echo "<div class='overflowBox'>";
   foreach ($itemList as $key => $musicItem) {
     $pMusicId = $musicItem['MusicId'];
     $pQuantity = $musicItem['Quantity'];
@@ -64,9 +65,10 @@
     echo "<div class='cartMusicId displayNone'>$pMusicId</div>";
     echo "<div class='cartItemInfo cartMusicName'>Music Name: $pMusicName</div>";
     echo "<div class='cartItemInfo cartQuantity'>Quantity: $pQuantity</div>";
+    echo "<div class='deleteCartButton buttons' onclick='deleteCartItem(this)'>Delete</div>";
     echo "</div>";
   }
-
+  echo "</div>";
   echo "<div class='cartTotalPrice'>Total Price: $ $totalPrice</div>";
   
 
