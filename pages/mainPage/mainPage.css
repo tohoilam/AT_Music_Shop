@@ -4,8 +4,14 @@ nav {
   background-color: var(--sidebar-color);
 }
 
+#mainSection {
+  height: 100%;
+  width: calc(100% - 300px);
+}
+
 #musicRecordsArea {
   height: calc(100% - 50px);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -19,6 +25,18 @@ nav {
   border: 1px solid black;
   margin: 20px 10px;
 }
+
+.directoryLink {
+  font-size: 0.7rem;
+  height: 15px;
+  width: 100%;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
+}
+
 
 .mainMusicName {
   height: 70px;
@@ -47,4 +65,8 @@ nav {
 
 .mainMusicPrice {
   font-weight: bold;
+}
+
+.mainNewArrival {
+  color: red;
 }

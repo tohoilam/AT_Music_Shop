@@ -1,4 +1,4 @@
-let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading, $errorPage;
+let $topBar, $mainPage, $musicInfoPage, $cartPage, $loginPage, $createAccountPage, $checkoutPage, $invoicePage, $loading, $errorPage, $mainLinkPart;
 let $homeLinks;
 
 async function getUserId() {
@@ -57,6 +57,7 @@ $(document).ready(function() {
   $homeLinks = $('.homeLink');
   $loading = $('#loading');
   $errorPage = $('#errorPage');
+  $mainLinkPart = $('#mainLinkPart');
   // $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
   for (let i = 0; i < $homeLinks.length; i++) {
     $homeLinks[i].addEventListener('click', () => {
@@ -160,6 +161,7 @@ async function changeTab(tabType, param, toLoad = true) {
     $invoicePage.hide();
     $errorPage.hide();
     $topBar.show();
+    $mainLinkPart.hide();
     
     if (userId) {
       $('#registerButton').hide();

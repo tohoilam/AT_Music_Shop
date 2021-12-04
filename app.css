@@ -38,7 +38,7 @@ main {
   height: calc(100% - 80px);
 }
 
-.pageTab {
+.pageHeader {
   height: 50px;
   background-color: var(--topbar-color);
 }
@@ -70,6 +70,10 @@ main {
   margin: 8px 10px;
   height: 20px;
   border: 1px solid black;
+}
+
+.pageHeadings {
+  font-size: 1.7rem;
 }
 
 #searchButton {

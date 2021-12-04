@@ -43,6 +43,8 @@ function changeCategory(element) {
       console.log('done')
       $musicRecordsArea.empty().append(response);
       $('#mainPageHeading').text($('#category').text());
+      $('#mainLinkPart > .subLink').text(category);
+      $mainLinkPart.show();
       $('#category').hide();
     }
   }
@@ -74,8 +76,11 @@ async function getMusicRecords() {
     if (response.status == 200) {
       let data = await response.text();
       $musicRecordsArea.empty().append(data);
-      $('#mainPageHeading').text($('#category').text());
+      let category = $('#category').text();
+      $('#mainPageHeading').text(category);
+      $mainLinkPart.hide();
       $('#category').hide();
+
     }
     else {
       alert('HTTP return status:', response.status);

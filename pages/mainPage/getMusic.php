@@ -55,7 +55,7 @@
         echo "</div>";
         echo "<div class='mainMusicInfo floatLeft'>";
         if ($item['NewArrival'] == 1) {
-          echo "<div class='mainMusicInfoItems floatLeft'>NEW ARRIVAL!</div>";
+          echo "<div class='mainMusicInfoItems mainNewArrival floatLeft'>NEW ARRIVAL!</div>";
         }
         echo "<div class='mainMusicInfoItems floatLeft clearLeft mainComposerBox'>Composer: <span class='mainComposer'>$Composer</span></div>";
         echo "<div class='mainMusicInfoItems floatLeft clearLeft mainMusicPrice'>Price: $ $Price</div>";

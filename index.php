@@ -36,23 +36,27 @@
     </div>
     <div id="mainPage">
       <nav class="floatLeft"></nav>
-      <div id="mainPageHeadingBar" class="pageTab">
-        <div class="directoryLink floatLeft">
-          <span class="homeLink pointer">Home</span> > <span class="subLink pointer"></span>
+      <div id="mainSection" class="floatLeft">
+        <div id="mainPageHeadingBar" class="pageHeader">
+          <div class="directoryLink">
+            <span class="homeLink link pointer">Home</span> <span id="mainLinkPart">&nbsp> &nbsp<span class="subLink link pointer"></span></span>
+          </div>
+          <div id='mainPageHeading' class='pageHeadings'>
+            All Music
+          </div>
         </div>
-        <div id='mainPageHeading' class='pageHeadings'>
-          All Music
-        </div>
-      </div>
       
-      <div id="musicRecordsArea"></div>
+        <div id="musicRecordsArea"></div>
+      </div>
     </div>
     <div id="musicInfoPage">
-      <div id="musicInfoPageHeading" class="pageTab">
+      <div id="musicInfoPageHeading" class="pageHeader">
         <div class="directoryLink">
-          <span class="homeLink pointer">Home</span> > <span class="subLink pointer"></span>
+          <span class="homeLink link pointer">Home</span> <span id="musicInfoLinkPart">&nbsp> &nbsp<span class="subLink link pointer"></span></span>
         </div>
-        Music Info Page
+        <div id='musicInfoPageHeading' class='pageHeadings'>
+          Music Info Page
+        </div>
       </div>
       <div id="musicInfoPageArea">
         <div id="musicInformation"></div>
