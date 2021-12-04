@@ -3,12 +3,12 @@
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
   
-  $query = "SELECT * FROM Music;";
-  $response = mysqli_query($connection, $query)
-    or die("Query Error!".mysqli_error($connection));
-  
-  if (mysqli_num_rows($response) > 0) {  
-    if ($_POST['type'] == 'nav') {
+  if ($_POST['type'] == 'nav') {
+    $query = "SELECT * FROM Music;";
+    $response = mysqli_query($connection, $query)
+      or die("Query Error!".mysqli_error($connection));
+    
+    if (mysqli_num_rows($response) > 0) {  
       $categories = array();
 
       while ($item = mysqli_fetch_array($response)) {
@@ -18,11 +18,28 @@
       }
       sort($categories);
 
+      echo "<div id='categoryHeading'>Category</div>";
       foreach ($categories as $i => $category) {
-        echo "<div>" . $category . "</div>";
+        echo "<div class='categories pointer' onclick='changeCategory(this)'>" . $category . "</div>";
       }
     }
-    elseif ($_POST['type'] == 'all') {
+    else {
+      echo "No Record";
+    }
+  }
+  elseif ($_POST['type'] == 'all' || $_POST['type'] == 'category') {
+    if ($_POST['type'] == 'all' ) {
+      $query = "SELECT * FROM Music;";
+    }
+    else {
+      $byCategory = $_POST['category'];
+      $query = "SELECT * FROM Music WHERE Category = '$byCategory';";
+    }
+    
+    $response = mysqli_query($connection, $query)
+      or die("Query Error!".mysqli_error($connection));
+    
+    if (mysqli_num_rows($response) > 0) {  
       while ($item = mysqli_fetch_array($response)) {
         $MusicId = $item['MusicId'];
         echo "<div id='$MusicId' class='musicRecord' onclick='goMusicInfo(this)'>";
@@ -37,10 +54,9 @@
 
       }
     }
-    
-  }
-  else {
-    echo "No Record";
+    else {
+      echo "No Record";
+    }
   }
   
 
