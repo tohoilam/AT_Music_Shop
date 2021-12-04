@@ -1,0 +1,7 @@
+
+.cartItems {
+  box-sizing: 100%;
+  width: 100%;
+  margin: 20px;
+  border-bottom: 1px solid black;
+}

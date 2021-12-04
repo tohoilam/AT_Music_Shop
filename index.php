@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="pages/mainPage/mainPage.css">
   <link rel="stylesheet" href="pages/musicInfoPage/musicInfoPage.css">
+  <link rel="stylesheet" href="pages/cartPage/cartPage.css">
 
   <title>COMP3322_Project</title>
 </head>
