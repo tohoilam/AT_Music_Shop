@@ -4,10 +4,6 @@ nav {
   background-color: var(--sidebar-color);
 }
 
-#mainPageHeading {
-  
-}
-
 #musicRecordsArea {
   height: calc(100% - 50px);
   display: flex;
@@ -24,6 +20,31 @@ nav {
   margin: 20px 10px;
 }
 
-.musicRecord:hover {
-  cursor: pointer;
+.mainMusicName {
+  height: 70px;
+  width: 250px;
+  font-size: 1.3rem;
+}
+
+.mainMusicImageBox {
+  height: 180px;
+  width: 250px;
+}
+
+.mainMusicImageBox > img {
+  height: 100%;
+  width: auto;
+}
+
+.mainMusicInfo {
+  height: 100px;
+  width: 250px;
+}
+
+.mainMusicInfoItems {
+  font: 1.1rem;
+}
+
+.mainMusicPrice {
+  font-weight: bold;
 }

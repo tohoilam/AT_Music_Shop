@@ -61,7 +61,7 @@ $(document).ready(function() {
   // $globalSessionId = document.cookie.match(/PHPSESSID=[^;]+/);
   for (let i = 0; i < $homeLinks.length; i++) {
     $homeLinks[i].addEventListener('click', () => {
-      changeTab('main', null)
+      changeTab('main', null);
     });
   }
 
@@ -100,6 +100,28 @@ $(document).ready(function() {
     changeTab('signin', null);
   })
 
+  $('#searchButton').on('click', async (event) => {
+    await changeTab('main', null);
+    let stringInput = $('#searchInput').val();
+    let inputList = stringInput.split(' ');
+    
+    $('#musicRecordsArea > div').each(function() {
+      let $musicBox = $(this);
+      $musicBox.hide();
+
+      let musicName = $musicBox.children('.mainMusicName').text();
+      let composer = $musicBox.children('.mainMusicInfo').children('.mainComposerBox').children('.mainComposer').text();
+      
+      for (let i = 0; i < inputList.length; i++) {
+        if (musicName.includes(inputList[i]) || composer.includes(inputList[i])) {
+          $musicBox.show();
+          break;
+        }
+      }
+    })
+    
+  })
+
   $('#registerButton').hide();
   $('#signinButton').hide();
   $('#logoutButton').hide();
@@ -116,6 +138,7 @@ async function changeTab(tabType, param) {
   $checkoutPage.hide();
   $invoicePage.hide();
   $errorPage.hide();
+  $topBar.hide();
   $loading.show();
 
   let userId = await getUserId();
@@ -123,6 +146,7 @@ async function changeTab(tabType, param) {
   $loading.hide();
 
   if (tabType === 'main') {
+    getMusicRecords();
     $mainPage.show();
     $musicInfoPage.hide();
     $cartPage.hide();
@@ -131,6 +155,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
+    $topBar.show();
     
     if (userId) {
       $('#registerButton').hide();
@@ -151,6 +176,7 @@ async function changeTab(tabType, param) {
     $musicInfoPage.show();
     $errorPage.hide();
     $loading.hide();
+    $topBar.show();
   }
   else if (tabType === 'signin') {
     $mainPage.hide();
@@ -161,6 +187,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
+    $topBar.hide();
     $('#loginUsername').text('');
     $('#loginPassword').text('');
   }
@@ -173,6 +200,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
+    $topBar.hide();
     $('#loginUsername').text('');
     $('#loginPassword').text('');
   }
@@ -185,6 +213,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.show();
+    $topBar.hide();
   }
   else if (tabType === 'cart') {
     $mainPage.hide();
@@ -195,6 +224,7 @@ async function changeTab(tabType, param) {
     $checkoutPage.hide();
     $invoicePage.hide();
     $errorPage.hide();
+    $topBar.show();
   }
 }
 

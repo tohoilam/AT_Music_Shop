@@ -3,6 +3,11 @@
   --sidebar-color: rgb(235, 175, 175);
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -15,19 +20,22 @@ header {
 
 main {
   height: calc(100vh - 40px);
+  width: 100%;
 }
 
 #topBar {
-  height: 60px;
+  height: 80px;
+  width: 100%;
   background-color: rgb(146, 196, 219);
+  position: relative;
 }
 
 #mainPage {
-  height: calc(100% - 60px);
+  height: calc(100% - 80px);
 }
 
 #musicInfoPage {
-  height: calc(100% - 60px);
+  height: calc(100% - 80px);
 }
 
 .pageTab {
@@ -35,11 +43,37 @@ main {
   background-color: var(--topbar-color);
 }
 
+#buttonsMenu {
+  width: 100%;
+  height: 40px;
+}
+
 .buttons {
   cursor: pointer;
   margin: 10px;
   border: 1px solid black;
   background-color: var(--sidebar-color);
+  height: 18px;
+  width: 60px;
+  text-align: center;
+}
+
+#searchBar {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 2px 50px;
+}
+
+#searchInput {
+  width: calc(100% - 110px);
+  margin: 8px 10px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+#searchButton {
+  margin: 8px 10px;
 }
 
 .pointer:hover {
@@ -54,6 +88,22 @@ main {
   float: right;
 }
 
+.clearLeft {
+  clear: left;
+}
+
+.clearRight {
+  clear: right;
+}
+
+.clearBoth {
+  clear: both;
+}
+
 .displayNone {
   display: none;
+}
+
+.pageHeadings {
+  color: red; 
 }

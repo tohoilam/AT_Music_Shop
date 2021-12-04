@@ -22,20 +22,29 @@
 <body>
   <header>COMP3322 Project</header>
   <main>
-    <div id="topBar"></div>
+    <div id="topBar">
+      <div id='searchBar'>
+        <input type='text' id='searchInput' class='floatLeft' name='searchBar' placeholder='Keyword(s)'>
+        <div id='searchButton' class='buttons pointer floatLeft'>Search</div>
+      </div>
+      <div id='buttonsMenu'>
+        <div id='cartButton' class='buttons floatRight'>Cart</div>
+        <div id='registerButton' class='buttons floatRight'>Register</div>
+        <div id='signinButton' class='buttons floatRight'>Sign in</div>
+        <div id='logoutButton' class='buttons floatRight'><a href='utilities/logout.php'>Logout</a></div>
+      </div>
+    </div>
     <div id="mainPage">
       <nav class="floatLeft"></nav>
-      <div id="mainPageHeading" class="pageTab">
+      <div id="mainPageHeadingBar" class="pageTab">
         <div class="directoryLink floatLeft">
           <span class="homeLink pointer">Home</span> > <span class="subLink pointer"></span>
         </div>
-        <div id='buttonsMenu floatRight'>
-          <div id='cartButton' class='buttons floatRight'>Cart</div>
-          <div id='registerButton' class='buttons floatRight'>Register</div>
-          <div id='signinButton' class='buttons floatRight'>Sign in</div>
-          <div id='logoutButton' class='buttons floatRight'><a href='utilities/logout.php'>Logout</a></div>
+        <div id='mainPageHeading' class='pageHeadings'>
+          All Music
         </div>
       </div>
+      
       <div id="musicRecordsArea"></div>
     </div>
     <div id="musicInfoPage">

@@ -42,6 +42,8 @@ function changeCategory(element) {
       let response = xmlHttp.responseText;
       console.log('done')
       $musicRecordsArea.empty().append(response);
+      $('#mainPageHeading').text($('#category').text());
+      $('#category').hide();
     }
   }
   xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);
@@ -59,6 +61,8 @@ function getMusicRecords() {
       let response = xmlHttp.responseText;
 
       $musicRecordsArea.empty().append(response);
+      $('#mainPageHeading').text($('#category').text());
+      $('#category').hide();
     }
   }
   xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);

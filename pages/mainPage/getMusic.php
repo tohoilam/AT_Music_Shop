@@ -18,7 +18,7 @@
       }
       sort($categories);
 
-      echo "<div id='categoryHeading'>Category</div>";
+      echo "<div id='categoryHeading' class='pageHeadings'>Category</div>";
       foreach ($categories as $i => $category) {
         echo "<div class='categories pointer' onclick='changeCategory(this)'>" . $category . "</div>";
       }
@@ -30,10 +30,12 @@
   elseif ($_POST['type'] == 'all' || $_POST['type'] == 'category') {
     if ($_POST['type'] == 'all' ) {
       $query = "SELECT * FROM Music;";
+      echo "<div id='category'>All Music</div>";
     }
     else {
       $byCategory = $_POST['category'];
       $query = "SELECT * FROM Music WHERE Category = '$byCategory';";
+      echo "<div id='category'>All $byCategory</div>";
     }
     
     $response = mysqli_query($connection, $query)
@@ -42,14 +44,22 @@
     if (mysqli_num_rows($response) > 0) {  
       while ($item = mysqli_fetch_array($response)) {
         $MusicId = $item['MusicId'];
-        echo "<div id='$MusicId' class='musicRecord' onclick='goMusicInfo(this)'>";
-        echo $item['MusicName'];
-        echo $item['MusicImage'];
+        $MusicName = $item['MusicName'];
+        $MusicImage = $item['MusicImage'];
+        $Composer = $item['Composer'];
+        $Price = $item['Price'];
+        echo "<div id='$MusicId' class='musicRecord'>";
+        echo "<div class='mainMusicName pointer floatLeft' onclick='goMusicInfo(this)'>$MusicName</div>";
+        echo "<div class='mainMusicImageBox floatLeft'>";
+        echo "<img src='media/$MusicImage' alt='$MusicName' title='$MusicName' />";
+        echo "</div>";
+        echo "<div class='mainMusicInfo floatLeft'>";
         if ($item['NewArrival'] == 1) {
-          echo "NEW ARRIVAL!";
+          echo "<div class='mainMusicInfoItems floatLeft'>NEW ARRIVAL!</div>";
         }
-        echo 'Composer: ' . $item['Composer'];
-        echo 'Price: $ ' . $item['Price'];
+        echo "<div class='mainMusicInfoItems floatLeft clearLeft mainComposerBox'>Composer: <span class='mainComposer'>$Composer</span></div>";
+        echo "<div class='mainMusicInfoItems floatLeft clearLeft mainMusicPrice'>Price: $ $Price</div>";
+        echo "</div>";
         echo "</div>";
 
       }
