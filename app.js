@@ -130,23 +130,23 @@ $(document).ready(function() {
 })
 
 async function changeTab(tabType, param) {
-  $mainPage.hide();
-  $musicInfoPage.hide();
-  $cartPage.hide();
-  $loginPage.hide();
-  $createAccountPage.hide();
-  $checkoutPage.hide();
-  $invoicePage.hide();
-  $errorPage.hide();
-  $topBar.hide();
-  $loading.show();
+  // $mainPage.hide();
+  // $musicInfoPage.hide();
+  // $cartPage.hide();
+  // $loginPage.hide();
+  // $createAccountPage.hide();
+  // $checkoutPage.hide();
+  // $invoicePage.hide();
+  // $errorPage.hide();
+  // // $topBar.hide();
+  // $loading.show();
 
   let userId = await getUserId();
 
   $loading.hide();
 
   if (tabType === 'main') {
-    getMusicRecords();
+    await getMusicRecords();
     $mainPage.show();
     $musicInfoPage.hide();
     $cartPage.hide();

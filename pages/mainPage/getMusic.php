@@ -3,7 +3,7 @@
   $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
     or die("Connection Error! ".mysqli_connect_error());
   
-  if ($_POST['type'] == 'nav') {
+  if ($_GET['type'] == 'nav') {
     $query = "SELECT * FROM Music;";
     $response = mysqli_query($connection, $query)
       or die("Query Error!".mysqli_error($connection));
@@ -27,13 +27,13 @@
       echo "No Record";
     }
   }
-  elseif ($_POST['type'] == 'all' || $_POST['type'] == 'category') {
-    if ($_POST['type'] == 'all' ) {
+  elseif ($_GET['type'] == 'all' || $_GET['type'] == 'category') {
+    if ($_GET['type'] == 'all' ) {
       $query = "SELECT * FROM Music;";
       echo "<div id='category'>All Music</div>";
     }
     else {
-      $byCategory = $_POST['category'];
+      $byCategory = $_GET['category'];
       $query = "SELECT * FROM Music WHERE Category = '$byCategory';";
       echo "<div id='category'>All $byCategory</div>";
     }

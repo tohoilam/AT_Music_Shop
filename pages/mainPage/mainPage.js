@@ -24,9 +24,9 @@ function getMusicCategory() {
       $nav.empty().append(response);
     }
   }
-  xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send('type=nav');
+  xmlHttp.open('GET', 'pages/mainPage/getMusic.php?type=nav', true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlHttp.send();
 }
 
 function changeCategory(element) {
@@ -46,28 +46,44 @@ function changeCategory(element) {
       $('#category').hide();
     }
   }
-  xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send(`type=category&category=${category}`);
+  xmlHttp.open('GET', `pages/mainPage/getMusic.php?type=category&category=${category}`, true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlHttp.send();
 }
 
-function getMusicRecords() {
-  let xmlHttp = new XMLHttpRequest();
-  if (!xmlHttp) {
-    alert('Cannot create XMLHttpRequest object!!');
-  }
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-      let response = xmlHttp.responseText;
+async function getMusicRecords() {
+  // let xmlHttp = new XMLHttpRequest();
+  // if (!xmlHttp) {
+  //   alert('Cannot create XMLHttpRequest object!!');
+  // }
+  // xmlHttp.onreadystatechange = function() {
+  //   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+  //     let response = xmlHttp.responseText;
 
-      $musicRecordsArea.empty().append(response);
+  //     $musicRecordsArea.empty().append(response);
+  //     $('#mainPageHeading').text($('#category').text());
+  //     $('#category').hide();
+  //   }
+  // }
+  // xmlHttp.open('GET', 'pages/mainPage/getMusic.php?type=all', true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // xmlHttp.send();
+
+  try {
+    let response = await fetch('pages/mainPage/getMusic.php?type=all');
+    if (response.status == 200) {
+      let data = await response.text();
+      $musicRecordsArea.empty().append(data);
       $('#mainPageHeading').text($('#category').text());
       $('#category').hide();
     }
+    else {
+      alert('HTTP return status:', response.status);
+    }
   }
-  xmlHttp.open('POST', 'pages/mainPage/getMusic.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send('type=all');
+  catch (error) {
+    alert('Fetch all music records resulted in an error!');
+  }
 }
 
 function goMusicInfo(element) {
