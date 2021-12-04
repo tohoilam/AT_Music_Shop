@@ -14,10 +14,12 @@
   <script src="pages/loginPage/loginPage.js"></script>
   <script src="pages/registerPage/registerPage.js"></script>
   <script src="pages/cartPage/cartPage.js"></script>
+  <script src="pages/checkoutPage/checkoutPage.js"></script>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="pages/mainPage/mainPage.css">
   <link rel="stylesheet" href="pages/musicInfoPage/musicInfoPage.css">
   <link rel="stylesheet" href="pages/cartPage/cartPage.css">
+  <link rel="stylesheet" href="pages/checkoutPage/checkoutPage.css">
 
   <title>COMP3322_Project</title>
 </head>
@@ -100,7 +102,88 @@
       </form>
     </div>
     <div id="checkoutPage">
-      Check Out Page
+      <div id="section1">
+        <div id='section1Info'>
+          <div id="newCustomer" class="sectionOneItem floatLeft">
+            <div class="checkoutPageHeadings">I'm a new customer</div>
+            <div class="iamAction">Please Checkout Below</div>
+          </div>
+          <div class="or floatLeft">or</div>
+          <div id="existingCustomer" class="sectionOneItem floatLeft">
+            <div class="checkoutPageHeadings">I'm already a customer</div>
+            <div id='checkoutToSignin' class="iamAction buttons"> Sign In</div>
+          </div>
+        </div>
+        <div id='checkoutCreateAccount'>
+          <div class='checkoutPageHeadings'>Create Account:</div>
+          <div class='checkoutFormItem'>
+            <div class='validation' data-error='This field must not be empty!'>
+              <label for='username'>Username</label>
+              <input type='text' id='checkoutRegisterUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required>
+            </div>
+          </div>
+          <div class='checkoutFormItem'>
+            <div class='validation' data-error='This field must not be empty!'>
+              <label for='password'>Password</label>
+              <input type='password' id='checkoutRegisterPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="section2">
+        <div id="deliveryAddressHeading" class='checkoutPageHeadings'>Delivery Address:</div>
+        <div class='checkoutFormItem'>
+          <div class='validation' data-error='This field must not be empty!'>
+            <label for='fullName'>Full Name</label>
+            <input type='text' id='fullName' name='fullName' placeholder='Required' required>
+          </div>
+        </div>
+        <div class='checkoutFormItem'>
+          <label for='companyName'>Company Name</label>
+          <input type='text' id='companyName' name='companyName'>
+        </div>
+        <div class='checkoutFormItem'>
+          <div class='validation' data-error='This field must not be empty!'>
+            <label for='addressLine1'>Address Line 1</label>
+            <input type='text' id='addressLine1' name='addressLine1' placeholder='Required' required>
+          </div>
+        </div>
+        <div class='checkoutFormItem'>
+          <label for='addressLine2'>Address Line 2</label>
+          <input type='text' id='addressLine2' name='addressLine2'>
+        </div>
+        <div class='checkoutFormItem'>
+          <div class='validation' data-error='This field must not be empty!'>
+            <label for='city'>City</label>
+            <input type='text' id='city' name='city' placeholder='Required' required>
+          </div>
+        </div>
+        <div class='checkoutFormItem'>
+          <label for='region'>Region/State/District</label>
+          <input type='text' id='region' name='region'>
+        </div>
+        <div class='checkoutFormItem'>
+          <div class='validation' data-error='This field must not be empty!'>
+            <label for='country'>Country</label>
+            <input type='text' id='country' name='country' placeholder='Required' required>
+          </div>
+        </div>
+        <div class='checkoutFormItem'>
+          <div class='validation' data-error='This field must not be empty!'>
+            <label for='zipCode'>Postcode/Zip Code</label>
+            <input type='text' id='zipCode' name='zipCode' placeholder='Required' required>
+          </div>
+        </div>
+      </div>
+      <div id="section3">
+        <div id='yourOrderInfoSection'>
+          <div id="yourOrderHeading" class='checkoutPageHeadings floatLeft'>Your order</div>
+          <div id='checkoutBackCartButton' class='buttons floatLeft'>change</div>
+          <div id='shipping' class='floatLeft clearLeft'>Free Standard Shipping</div>
+        </div>
+        <div id='orderArea'></div>
+      </div>
+      <div id='checkoutConfirmButton' class='buttons'>Confirm</div>
     </div>
     <div id="invoicePage">
       Invoice Page

@@ -108,6 +108,19 @@ $(document).ready(function() {
     changeTab('signin', null);
   })
 
+  $('#checkoutToSignin').on('click', (event) => {
+    changeTab('signin', null);
+  })
+
+  $('#checkoutBackCartButton').on('click', (event) => {
+    changeTab('cart', null);
+    cartInitialize();
+  })
+
+  $('#checkoutConfirmButton').on('click', (event) => {
+    confirmCheckout();
+  })
+
   $('#searchButton').on('click', async (event) => {
     await changeTab('main', null, false);
     let stringInput = $('#searchInput').val();
@@ -246,6 +259,8 @@ async function changeTab(tabType, param, toLoad = true) {
     $topBar.show();
   }
   else if (tabType === 'checkout') {
+    initializeCheckoutPage();
+
     $mainPage.hide();
     $musicInfoPage.hide();
     $cartPage.hide();
