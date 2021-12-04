@@ -36,10 +36,11 @@
   else {
     if ($_SESSION['GuestCart']) {
       $guestCart = unserialize($_SESSION['GuestCart']);
-      for ($i = 0; $i < sizeof($guestCart); $i++) {
-        $MusicId = $guestCart[$i][1];
-        $UserId = $guestCart[$i][2];
-        $Quantity = $guestCart[$i][3];
+      // for ($i = 0; $i < sizeof($guestCart); $i++) {
+      foreach ($guestCart as $key => $musicItem) {
+        $MusicId = $musicItem[1];
+        $UserId = $musicItem[2];
+        $Quantity = $musicItem[3];
 
         $query = "SELECT * FROM Music WHERE MusicId = '$MusicId'";
         $response = mysqli_query($connection, $query)
@@ -56,7 +57,7 @@
       }
     }
   }
-  echo "<div class='overflowBox'>";
+  echo "<div class='cartOverflowBox'>";
   foreach ($itemList as $key => $musicItem) {
     $pMusicId = $musicItem['MusicId'];
     $pQuantity = $musicItem['Quantity'];

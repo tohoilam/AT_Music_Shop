@@ -43,35 +43,71 @@ async function addToCart(musicId, quantity) {
     return
   }
 
-  let xmlHttp = new XMLHttpRequest();
-  if (!xmlHttp) {
-    alert('Cannot create XMLHttpRequest object!!');
-  }
-  
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-      let response = xmlHttp.responseText;
-      if (response.substring(0, 4) === 'done') {
+  try {
+    let UserId = await getUserId();
+    let response;
+    if (UserId) {
+      response = await fetch(`pages/musicInfoPage/addToCart.php?mode=user&musicId=${musicId}&quantity=${quantity}`);
+    }
+    else {
+      response = await fetch(`pages/musicInfoPage/addToCart.php?mode=guest&musicId=${musicId}&quantity=${quantity}`);
+    }
+
+    if (response.status == 200) {
+      let data = await response.text();
+      console.log(data);
+      if (data.substring(0, 4) === 'done') {
         inputQuantity.value = '';
-        let totalQuantity = response.substring(4);
-        $('#cartButton').text(`Cart (${totalQuantity})`)
+        let totalQuantity = data.substring(4);
+        $('#cartButton').text(`Cart (${totalQuantity})`);
+        changeTab('cart', null);
+        cartInitialize();
       }
-      else if (response === 'No_UserId_In_Session') {
+      else if (data === 'No_UserId_In_Session') {
         alert('User Id is not set in Session');
       }
       else {
         alert('Failed adding item!');
       }
     }
+    else {
+      alert('HTTP return status:', response.status);
+    }
   }
-  xmlHttp.open('POST', 'pages/musicInfoPage/addToCart.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  catch (error) {
+    alert('Fetch add to cart resulted in an Error!');
+  }
 
-  let UserId = await getUserId();
-  if (UserId) {
-    xmlHttp.send(`mode=user&musicId=${musicId}&quantity=${quantity}`);
-  }
-  else {
-    xmlHttp.send(`mode=guest&musicId=${musicId}&quantity=${quantity}`);
-  }
+  // let xmlHttp = new XMLHttpRequest();
+  // if (!xmlHttp) {
+  //   alert('Cannot create XMLHttpRequest object!!');
+  // }
+  
+  // xmlHttp.onreadystatechange = function() {
+  //   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+  //     let response = xmlHttp.responseText;
+  //     if (response.substring(0, 4) === 'done') {
+  //       inputQuantity.value = '';
+  //       let totalQuantity = response.substring(4);
+  //       $('#cartButton').text(`Cart (${totalQuantity})`);
+  //       changeTab('cart', null);
+  //     }
+  //     else if (response === 'No_UserId_In_Session') {
+  //       alert('User Id is not set in Session');
+  //     }
+  //     else {
+  //       alert('Failed adding item!');
+  //     }
+  //   }
+  // }
+  // xmlHttp.open('POST', 'pages/musicInfoPage/addToCart.php', true);
+  // xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  // let UserId = await getUserId();
+  // if (UserId) {
+  //   xmlHttp.send(`mode=user&musicId=${musicId}&quantity=${quantity}`);
+  // }
+  // else {
+  //   xmlHttp.send(`mode=guest&musicId=${musicId}&quantity=${quantity}`);
+  // }
 }

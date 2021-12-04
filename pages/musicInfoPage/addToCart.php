@@ -1,9 +1,9 @@
 <?php
   session_start();
 
-  $mode = $_POST['mode'];
-  $musicId = $_POST['musicId'];
-  $quantity = $_POST['quantity'];
+  $mode = $_GET['mode'];
+  $musicId = $_GET['musicId'];
+  $quantity = $_GET['quantity'];
   
   if ($mode == 'user') {
     $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')

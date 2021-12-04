@@ -73,6 +73,8 @@
     <div id="cartPage">
       <div id='cartPageHeading' class='pageHeadings'>My Shopping Cart</div>
       <div id="cartArea"></div>
+      <div id='cartPageBackButton' class='buttons floatLeft'>Back</div>
+      <div id='checkOutButton' class='buttons floatLeft'>Checkout</div>
     </div>
     <div id="loginPage">
       Login Page

@@ -1,7 +1,7 @@
 
 #cartArea {
   width: calc(100% - 40px);
-  height: calc(100% - 35px - 60px - 20px);
+  height: calc(100% - 35px - 30px - 20px);
   margin: 0px 20px;
 }
 
@@ -16,7 +16,13 @@
 }
 
 .cartTotalPrice {
-  height: 50px;
+  height: 30px;
   padding: 10px 0px;
   margin-bottom: 10px;
+}
+
+.cartOverflowBox {
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 30px);
 }

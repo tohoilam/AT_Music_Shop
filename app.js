@@ -82,6 +82,14 @@ $(document).ready(function() {
     cartInitialize();
   })
 
+  $('#cartPageBackButton').on('click', (event) => {
+    changeTab('main', null);
+  })
+
+  $('#checkOutButton').on('click', (event) => {
+    changeTab('checkout', null);
+  })
+
   $('#LoginForm').submit(function(event) {
     loginFormSubmit();
     return false;
@@ -236,6 +244,17 @@ async function changeTab(tabType, param, toLoad = true) {
     $invoicePage.hide();
     $errorPage.hide();
     $topBar.show();
+  }
+  else if (tabType === 'checkout') {
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.show();
+    $invoicePage.hide();
+    $errorPage.hide();
+    $topBar.hide();
   }
 }
 
