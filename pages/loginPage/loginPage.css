@@ -12,9 +12,13 @@
 input[type="submit"] {
   height: 20px; 
   width: 62px;
+  font: inherit;
   font-size: 0.75rem;
   margin-left: 80px;
   padding-top: 0px;
+	color: inherit;
+	border: 1px solid black;
+	outline: inherit;
 }
 
 

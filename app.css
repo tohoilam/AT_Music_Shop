@@ -72,6 +72,11 @@ div#invoicePage {
   overflow: auto;
 }
 
+#musicInfoPage {
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
 .pageHeader {
   height: 50px;
   background-color: var(--topbar-color);
@@ -112,6 +117,7 @@ div#invoicePage {
   font-size: 1.7rem;
   color: red;
   height: 35px;
+  padding-left: 5px;
 }
 
 #searchButton {
