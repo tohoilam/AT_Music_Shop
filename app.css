@@ -158,6 +158,18 @@ div#invoicePage {
   height: 100%;
 }
 
+#shopName {
+  font-size: 1.6rem;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+#courseAndName {
+  font-size: 0.8rem;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+
 @media only screen and (min-width: 451px) and (max-width: 960px) {
   .pageHeadings {
     font-size: 1.5rem;
@@ -176,5 +188,10 @@ div#invoicePage {
 
   #searchBar {
     padding: 2px 10px;
+  }
+
+  #courseAndName {
+    font-size: 0.4rem;
+    padding-top: 15px;
   }
 }

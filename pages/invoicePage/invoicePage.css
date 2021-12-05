@@ -1,14 +1,15 @@
 
 #deliveryInfoArea {
   font-size: 1.2rem;
-  height: 150px;
   padding: 10px 10px;
-  border-bottom: 1px solid black;
+  display: inline-block;
 }
 
 .deliveryInfo {
   float: left;
   padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .deliveryLabel {
@@ -24,12 +25,12 @@
 .deliveryLine {
   width: 100%;
   clear: left;
-  padding: 5px 0px;
 }
 
 div#invoiceDeliveryItem {
   padding-top: 10px;
   border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 
 #finalWords {
@@ -40,4 +41,24 @@ div#invoiceDeliveryItem {
 
 #okButton {
   margin: 20px auto;
+}
+
+@media only screen and (min-width: 451px) and (max-width: 610px) {
+  #deliveryInfoArea {
+    font-size: 0.9rem;
+  }
+
+  #finalWords {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #deliveryInfoArea {
+    font-size: 0.6rem;
+  }
+
+  #finalWords {
+    font-size: 0.7rem;
+  }
 }

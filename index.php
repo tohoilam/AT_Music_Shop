@@ -27,7 +27,13 @@
   <title>COMP3322_Project</title>
 </head>
 <body>
-  <header>COMP3322 Project</header>
+  <header>
+    <div id='shopName' class='floatLeft'>AT MUSIC SHOP</div>
+    <div id='courseAndName' class='floatRight'>
+      <div id='course' class='floatRight'>COMP3322</div>
+      <div id='nameAndUid' class='clearRight floatRight'>To Hoi Lam 3035667455</div>
+    </div>
+  </header>
   <main>
     <div id="topBar">
       <div id='searchBar'>
@@ -114,18 +120,18 @@
     </div>
     <div id="checkoutPage">
       <div id="section1">
-        <div id='section1Info'>
+        <div id='section1Info' class='floatLeft'>
           <div id="newCustomer" class="sectionOneItem floatLeft">
             <div class="checkoutPageHeadings">I'm a new customer</div>
-            <div class="iamAction">Please Checkout Below</div>
+            <div class="iamAction floatLeft">Please Checkout Below</div>
+            <div id='or' class="iamAction floatRight">or</div>
           </div>
-          <div class="or floatLeft">or</div>
           <div id="existingCustomer" class="sectionOneItem floatLeft">
             <div class="checkoutPageHeadings">I'm already a customer</div>
             <div id='checkoutToSignin' class="iamAction buttons"> Sign In</div>
           </div>
         </div>
-        <div id='checkoutCreateAccount'>
+        <div id='checkoutCreateAccount' class='floatLeft clearBoth'>
           <div class='checkoutPageHeadings'>Create Account:</div>
           <div class='checkoutFormItem'>
             <div class='validation' data-error>
@@ -146,43 +152,43 @@
         <div class='checkoutFormItem'>
           <div class='validation' data-error>
             <label for='fullName'>Full Name</label>
-            <input type='text' id='fullName' name='fullName' placeholder='Required' required>
+            <input type='text' id='fullName' name='fullName' maxlength='20' placeholder='Required' required>
           </div>
         </div>
         <div class='checkoutFormItem'>
           <label for='companyName'>Company Name</label>
-          <input type='text' id='companyName' name='companyName'>
+          <input type='text' id='companyName' maxlength='30' name='companyName'>
         </div>
         <div class='checkoutFormItem'>
           <div class='validation' data-error>
             <label for='addressLine1'>Address Line 1</label>
-            <input type='text' id='addressLine1' name='addressLine1' placeholder='Required' required>
+            <input type='text' id='addressLine1' name='addressLine1' maxlength='40' placeholder='Required' required>
           </div>
         </div>
         <div class='checkoutFormItem'>
           <label for='addressLine2'>Address Line 2</label>
-          <input type='text' id='addressLine2' name='addressLine2'>
+          <input type='text' id='addressLine2' name='addressLine2' maxlength='40'>
         </div>
         <div class='checkoutFormItem'>
           <div class='validation' data-error>
             <label for='city'>City</label>
-            <input type='text' id='city' name='city' placeholder='Required' required>
+            <input type='text' id='city' name='city' placeholder='Required' maxlength='15' required>
           </div>
         </div>
         <div class='checkoutFormItem'>
           <label for='region'>Region/State/District</label>
-          <input type='text' id='region' name='region'>
+          <input type='text' id='region' name='region' maxlength='15'>
         </div>
         <div class='checkoutFormItem'>
           <div class='validation' data-error>
             <label for='country'>Country</label>
-            <input type='text' id='country' name='country' placeholder='Required' required>
+            <input type='text' id='country' name='country' placeholder='Required' maxlength='15' required>
           </div>
         </div>
         <div class='checkoutFormItem'>
           <div class='validation' data-error>
             <label for='zipCode'>Postcode/Zip Code</label>
-            <input type='text' id='zipCode' name='zipCode' placeholder='Required' required>
+            <input type='text' id='zipCode' name='zipCode' placeholder='Required' maxlength='6' required>
           </div>
         </div>
       </div>
