@@ -78,7 +78,76 @@ async function confirmCheckout() {
   })
 
   if (valid) {
-    console.log('can confirm now');
+    checkout();
+  }
+}
+
+async function checkout() {
+  let userId = await obtainUserId();
+  let username;
+  let success = true;
+
+  if (! (userId && userId != 0)) {
+    username = $('#checkoutRegisterUsername').val();
+    let password = $('#checkoutRegisterPassword').val();
+
+    success = false;
+
+    try {
+      let response = await fetch(`pages/registerPage/verifyRegister.php?username=${username}&password=${password}`);
+      if (response.status == 200) {
+        let data = await response.text();
+
+        if (data == 'done') {
+          success = true;
+        }
+        else if (data == 'user_exists') {
+          alert("User Exists, please change a username");
+          return;
+        }
+      }
+      else {
+        alert('HTTP return status:', response.status);
+      }
+    }
+    catch (error) {
+      alert('Create account in checkout resulted in an Error!');
+    }
+  }
+  else {
+    username = userId;
+  }
+
+  if (success) {
+    let fullName = $('#fullName').val();
+    let companyName = $('#companyName').val();
+    if (!companyName) {
+      companyName = 'NA';
+    }
+    let addressLine1 = $('#addressLine1').val();
+    let addressLine2 = $('#addressLine2').val();
+    if (!addressLine2) {
+      addressLine2 = 'NA';
+    }
+    let city = $('#city').val();
+    let region = $('#region').val();
+    if (!region) {
+      region = 'NA';
+    }
+    let country = $('#country').val();
+    let zipCode = $('#zipCode').val();
+
+    $('#invoiceFullName > .devlieryValue').text(fullName);
+    $('#invoiceCompany > .devlieryValue').text(companyName);
+    $('#invoiceAddressLine1 > .devlieryValue').text(addressLine1);
+    $('#invoiceAddressLine2 > .devlieryValue').text(addressLine2);
+    $('#invoiceCity > .devlieryValue').text(city);
+    $('#invoiceRegion > .devlieryValue').text(region);
+    $('#invoiceCountry > .devlieryValue').text(country);
+    $('#invoiceZipCode > .devlieryValue').text(zipCode);
+
+    changeTab('invoicePage', null);
+
   }
 }
 

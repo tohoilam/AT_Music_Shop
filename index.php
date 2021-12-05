@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="pages/musicInfoPage/musicInfoPage.css">
   <link rel="stylesheet" href="pages/cartPage/cartPage.css">
   <link rel="stylesheet" href="pages/checkoutPage/checkoutPage.css">
+  <link rel="stylesheet" href="pages/invoicePage/invoicePage.css">
 
   <title>COMP3322_Project</title>
 </head>
@@ -186,7 +187,51 @@
       <div id='checkoutConfirmButton' class='buttons'>Confirm</div>
     </div>
     <div id="invoicePage">
-      Invoice Page
+      <div id="invoiceHeading" class='checkoutPageHeadings'>Invoice Page</div>
+      <div id="deliveryInfoArea">
+        <div class='deliveryLine'>
+          <div id='invoiceFullName' class='deliveryInfo'>
+            <div class='deliveryLabel'>Full Name:</div>
+            <div class='devlieryValue'></div>
+          </div>
+          <div id='invoiceCompany' class='deliveryInfo'>
+            <div class='deliveryLabel'>Company:</div>
+            <div class='devlieryValue'></div>
+          </div>
+        </div>
+        <div class='deliveryLine'>
+          <div id='invoiceAddressLine1' class='deliveryInfo'>
+            <div class='deliveryLabel'>Address Line 1:</div>
+            <div class='devlieryValue'></div>
+          </div>
+        </div>
+        <div class='deliveryLine'>
+          <div id='invoiceAddressLine2' class='deliveryInfo'>
+            <div class='deliveryLabel'>Address Line 2:</div>
+            <div class='devlieryValue'></div>
+          </div>
+        </div>
+        <div class='deliveryLine'>
+          <div id='invoiceCity' class='deliveryInfo'>
+            <div class='deliveryLabel'>City:</div>
+            <div class='devlieryValue'></div>
+          </div>
+          <div id='invoiceRegion' class='deliveryInfo'>
+            <div class='deliveryLabel'>Region:</div>
+            <div class='devlieryValue'></div>
+          </div>
+          <div id='invoiceCountry' class='deliveryInfo'>
+            <div class='deliveryLabel'>Country:</div>
+            <div class='devlieryValue'></div>
+          </div>
+        </div>
+        <div class='deliveryLine'>
+          <div id='invoiceZipCode' class='deliveryInfo'>
+            <div class='deliveryLabel'>Postcode:</div>
+            <div class='devlieryValue'></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="loading">
       Loading...

@@ -39,7 +39,6 @@ function registerFormSubmit() {
       }
     }
   }
-  xmlHttp.open('POST', 'pages/registerPage/verifyRegister.php', true);
-  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlHttp.send(`username=${username}&password=${password}`);
+  xmlHttp.open('GET', `pages/registerPage/verifyRegister.php?username=${username}&password=${password}`, true);
+  xmlHttp.send();
 }

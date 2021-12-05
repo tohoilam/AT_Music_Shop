@@ -306,6 +306,18 @@ async function changeTab(tabType, param, toLoad = true) {
     $errorPage.hide();
     $topBar.hide();
   }
+  else if (tabType === 'invoicePage') {
+
+    $mainPage.hide();
+    $musicInfoPage.hide();
+    $cartPage.hide();
+    $loginPage.hide();
+    $createAccountPage.hide();
+    $checkoutPage.hide();
+    $invoicePage.show();
+    $errorPage.hide();
+    $topBar.hide();
+  }
 }
 
 async function changeCartTotal() {
