@@ -91,10 +91,10 @@
       <div id='loginHeading' class='pageHeadings'>AT MUSIC SHOP - LOGIN</div>
       <form id='LoginForm'>
         <div class='loginRow'>
-          <input type='text' id='loginUsername' name='username' placeholder='Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+          <input type='text' id='loginUsername' name='username' placeholder='Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('Please do not leave the fields empty. User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
         </div>
         <div class='loginRow'>
-          <input type='password' id='loginPassword' name='password' placeholder='Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+          <input type='password' id='loginPassword' name='password' placeholder='Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Please do not leave the fields empty. Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
         </div>
         <div class='loginRow'>
           <input id='loginFormButton' class='buttons floatLeft' type='submit' value='SUBMIT'>
@@ -107,10 +107,10 @@
       <div id='registerHeading' class='pageHeadings'>AT MUSIC SHOP - CREATE ACCOUNT</div>
       <form id='RegisterForm'>
         <div class='loginRow'>
-          <input type='text' id='registerUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+          <input type='text' id='registerUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('Please do not leave the fields empty. User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
         </div>
         <div class='loginRow'>
-          <input type='password' id='registerPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+          <input type='password' id='registerPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Please do not leave the fields empty. Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
         </div>
         <div class='loginRow'>
           <input id='registerFormButton' class='buttons floatLeft' type='submit' value='CONFIRM'>
