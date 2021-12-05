@@ -1,12 +1,27 @@
 nav {
-  height: 100%;
-  width: 300px;
+  height: calc(100% - 20px);
+  width: 180px;
   background-color: var(--sidebar-color);
+  padding: 10px;
+}
+
+#categoryHeading {
+  padding-top: 4px;
+  padding-bottom: 5px;
+}
+
+.categories {
+  padding: 5px 10px;
+  font-size: 1.1rem;
+}
+
+.categories:hover {
+  font-weight: bold;
 }
 
 #mainSection {
   height: 100%;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
 }
 
 #musicRecordsArea {
@@ -19,11 +34,12 @@ nav {
 }
 
 .musicRecord {
-  height: 350px;
+  height: 330px;
   width: 250px;
   background-color: var(--sidebar-color);
   border: 1px solid black;
   margin: 20px 10px;
+  padding: 10px;
 }
 
 .directoryLink {
@@ -39,14 +55,19 @@ nav {
 
 
 .mainMusicName {
-  height: 70px;
+  height: 60px;
   width: 250px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+
+.mainMusicName:hover {
+  color: blue;
 }
 
 .mainMusicImageBox {
   height: 180px;
-  width: 250px;
+  width: 230px;
+  margin-left: 20px;
 }
 
 .mainMusicImageBox > img {
@@ -55,7 +76,8 @@ nav {
 }
 
 .mainMusicInfo {
-  height: 100px;
+  padding-top: 10px;
+  height: 80px;
   width: 250px;
 }
 
@@ -69,4 +91,62 @@ nav {
 
 .mainNewArrival {
   color: red;
+}
+
+
+@media only screen and (min-width: 451px) and (max-width: 960px) {
+  nav {
+    width: 100px;
+  }
+
+  #mainSection {
+    width: calc(100% - 120px);
+  }
+
+  .categories {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  nav {
+    width: 70px;
+    padding: 5px;
+  }
+
+  #mainSection {
+    width: calc(100% - 80px);
+  }
+
+  .categories {
+    font-size: 0.8rem;
+  }
+
+  .musicRecord {
+    height: 280px;
+    width: 200px;
+    margin: 20px 10px;
+    padding: 10px;
+  }
+
+  .mainMusicName {
+    /* height: 60px; */
+    width: 200px;
+    font-size: 1.0rem;
+  }
+
+  .mainMusicImageBox {
+    height: 150px;
+    width: 190px;
+    margin-left: 10px;
+  }
+
+  .mainMusicInfo {
+    height: 70px;
+    width: 200px;
+  }
+  
+  .mainMusicInfoItems {
+    font-size: 0.8rem;
+  }
 }

@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="pages/cartPage/cartPage.css">
   <link rel="stylesheet" href="pages/checkoutPage/checkoutPage.css">
   <link rel="stylesheet" href="pages/invoicePage/invoicePage.css">
+  <link rel="stylesheet" href="pages/loginPage/loginPage.css">
 
   <title>COMP3322_Project</title>
 </head>
@@ -81,26 +82,34 @@
       <div id='checkOutButton' class='buttons floatLeft'>Checkout</div>
     </div>
     <div id="loginPage">
-      Login Page
+      <div id='loginHeading' class='pageHeadings'>AT MUSIC SHOP - LOGIN</div>
       <form id='LoginForm'>
-        <label for='username'>Username</label>
-        <input type='text' id='loginUsername' name='username' placeholder='Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
-        <label for='password'>Password</label>
-        <input type='password' id='loginPassword' name='password' placeholder='Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
-        <input id='loginFormButton' class='buttons' type='submit' value='SUBMIT'>
-        <div id='createAccountFromLogin' class='buttons'>CREATE</div>
+        <div class='loginRow'>
+          <input type='text' id='loginUsername' name='username' placeholder='Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+        </div>
+        <div class='loginRow'>
+          <input type='password' id='loginPassword' name='password' placeholder='Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+        </div>
+        <div class='loginRow'>
+          <input id='loginFormButton' class='buttons floatLeft' type='submit' value='SUBMIT'>
+          <div id='createAccountFromLogin' class='buttons floatLeft'>CREATE</div>
+        </div>
       </form>
     </div>
     <div id='errorPage'><h1></h1></div>
     <div id="createAccountPage">
-      Create Account Page
+      <div id='registerHeading' class='pageHeadings'>AT MUSIC SHOP - CREATE ACCOUNT</div>
       <form id='RegisterForm'>
-        <label for='username'>Desired Username</label>
-        <input type='text' id='registerUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
-        <label for='password'>Desierd Password</label>
-        <input type='password' id='registerPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
-        <input id='registerFormButton' class='buttons' type='submit' value='CONFIRM'>
-        <div id='loginFromCreateAccount' class='buttons'>BACK</div>
+        <div class='loginRow'>
+          <input type='text' id='registerUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required oninvalid="this.setCustomValidity('User ID must be 8 digits number!')" onchange="this.setCustomValidity('')">
+        </div>
+        <div class='loginRow'>
+          <input type='password' id='registerPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required oninvalid="this.setCustomValidity('Password must be 8-12 characters long')" onchange="this.setCustomValidity('')">
+        </div>
+        <div class='loginRow'>
+          <input id='registerFormButton' class='buttons floatLeft' type='submit' value='CONFIRM'>
+          <div id='loginFromCreateAccount' class='buttons floatLeft'>BACK</div>
+        </div>
       </form>
     </div>
     <div id="checkoutPage">
