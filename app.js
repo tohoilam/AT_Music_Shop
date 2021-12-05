@@ -121,6 +121,41 @@ $(document).ready(function() {
     confirmCheckout();
   })
 
+  $('.validation[data-error] input').on('input', (event) => {
+    event.target.parentElement.removeAttribute('data-error');
+  })
+
+  $('.validation[data-error] input').focusout(async (event) => {
+    let inputValue = event.target.value;
+    let inputElement = event.target;
+
+    if (inputElement.validity.valueMissing){
+      inputElement.parentElement.setAttribute('data-error', 'This field must not be empty!');
+    }
+    else {
+      if (inputElement.id == 'checkoutRegisterUsername') {
+        if (inputElement.validity.patternMismatch) {
+          inputElement.parentElement.setAttribute('data-error', 'User ID must be 8 digits number!');
+          inputElement.value = '';
+        }
+        else {
+          let isNewUser = await checkIsNewUser(inputValue);
+          if (! isNewUser) {
+            inputElement.parentElement.setAttribute('data-error', 'Username Duplicated!');
+            inputElement.value = '';
+          }
+        }
+      }
+      else if (inputElement.id == 'checkoutRegisterPassword') {
+        if (inputElement.validity.patternMismatch) {
+          inputElement.parentElement.setAttribute('data-error', 'Password must be 8-12 characters long');
+          inputElement.value = '';
+        }
+      }
+    }
+    
+  })
+
   $('#searchButton').on('click', async (event) => {
     await changeTab('main', null, false);
     let stringInput = $('#searchInput').val();

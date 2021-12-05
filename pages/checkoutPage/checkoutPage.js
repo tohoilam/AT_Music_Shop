@@ -63,10 +63,42 @@ async function toggleSection1() {
 
 async function confirmCheckout() {
   let userId = await obtainUserId();
+  let valid = true;
+  
+  $('.validation[data-error] input').each(function() {
+    if (userId && userId != 0) {
+      if (this.id == 'checkoutRegisterUsername' || this.id == 'checkoutRegisterPassword') {
+        return;
+      }
+    }
 
-  if (!(userId && userId != 0)) {
-    // if (document.querySelector('#fullName').validity.valueMissing) {
-    //   console.log('empty');
-    // }
+    if (!this.validity.valid) {
+      valid = false;
+    }
+  })
+
+  if (valid) {
+    console.log('can confirm now');
+  }
+}
+
+async function checkIsNewUser(username) {
+  try {
+    let response = await fetch(`pages/checkoutPage/checkUserExist.php?username=${username}`);
+    if (response.status == 200) {
+      let data = await response.text();
+      if (data == 'ok') {
+        return true;
+      }
+      else {
+        return false
+      }
+    }
+    else {
+      alert('HTTP return status:', response.status);
+    }
+  }
+  catch (error) {
+    alert('Fetch checkout cart resulted in an Error!');
   }
 }

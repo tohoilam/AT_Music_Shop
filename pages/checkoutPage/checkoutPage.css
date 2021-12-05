@@ -78,7 +78,7 @@
 }
 
 .validation[data-error] input {
-  border-color: #c92432;
+  /* border-color: #c92432; */
 
 }
 

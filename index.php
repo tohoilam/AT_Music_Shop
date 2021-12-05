@@ -117,13 +117,13 @@
         <div id='checkoutCreateAccount'>
           <div class='checkoutPageHeadings'>Create Account:</div>
           <div class='checkoutFormItem'>
-            <div class='validation' data-error='This field must not be empty!'>
+            <div class='validation' data-error>
               <label for='username'>Username</label>
               <input type='text' id='checkoutRegisterUsername' name='username' placeholder='Desired Username' maxlength='8' pattern='[0-9]{8}' required>
             </div>
           </div>
           <div class='checkoutFormItem'>
-            <div class='validation' data-error='This field must not be empty!'>
+            <div class='validation' data-error>
               <label for='password'>Password</label>
               <input type='password' id='checkoutRegisterPassword' name='password' placeholder='Desired Password' maxlength='12' pattern='.{8,12}' required>
             </div>
@@ -133,7 +133,7 @@
       <div id="section2">
         <div id="deliveryAddressHeading" class='checkoutPageHeadings'>Delivery Address:</div>
         <div class='checkoutFormItem'>
-          <div class='validation' data-error='This field must not be empty!'>
+          <div class='validation' data-error>
             <label for='fullName'>Full Name</label>
             <input type='text' id='fullName' name='fullName' placeholder='Required' required>
           </div>
@@ -143,7 +143,7 @@
           <input type='text' id='companyName' name='companyName'>
         </div>
         <div class='checkoutFormItem'>
-          <div class='validation' data-error='This field must not be empty!'>
+          <div class='validation' data-error>
             <label for='addressLine1'>Address Line 1</label>
             <input type='text' id='addressLine1' name='addressLine1' placeholder='Required' required>
           </div>
@@ -153,7 +153,7 @@
           <input type='text' id='addressLine2' name='addressLine2'>
         </div>
         <div class='checkoutFormItem'>
-          <div class='validation' data-error='This field must not be empty!'>
+          <div class='validation' data-error>
             <label for='city'>City</label>
             <input type='text' id='city' name='city' placeholder='Required' required>
           </div>
@@ -163,13 +163,13 @@
           <input type='text' id='region' name='region'>
         </div>
         <div class='checkoutFormItem'>
-          <div class='validation' data-error='This field must not be empty!'>
+          <div class='validation' data-error>
             <label for='country'>Country</label>
             <input type='text' id='country' name='country' placeholder='Required' required>
           </div>
         </div>
         <div class='checkoutFormItem'>
-          <div class='validation' data-error='This field must not be empty!'>
+          <div class='validation' data-error>
             <label for='zipCode'>Postcode/Zip Code</label>
             <input type='text' id='zipCode' name='zipCode' placeholder='Required' required>
           </div>

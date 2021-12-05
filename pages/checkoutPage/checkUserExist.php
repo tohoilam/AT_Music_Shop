@@ -1,0 +1,20 @@
+<?php
+
+  session_start();
+  
+  $connection = mysqli_connect('sophia.cs.hku.hk', 'hlto', 'Sph121Ng', 'hlto')
+    or die("Connection Error! ".mysqli_connect_error());
+
+  $username = $_GET['username'];
+
+  $query = "SELECT * FROM Login WHERE UserId = '$username';";
+  $response = mysqli_query($connection, $query)
+    or die("Query Error!".mysqli_error($connection));
+
+  if (mysqli_num_rows($response) > 0) {
+    echo "user_exists";
+  }
+  else {
+    echo "ok";
+  }
+  
