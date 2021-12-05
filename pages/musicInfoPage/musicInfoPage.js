@@ -57,7 +57,7 @@ async function addToCart(musicId, quantity) {
       let data = await response.text();
       console.log(data);
       if (data.substring(0, 4) === 'done') {
-        inputQuantity.value = '';
+        inputQuantity.value = 1;
         let totalQuantity = data.substring(4);
         $('#cartButton').text(`Cart (${totalQuantity})`);
         changeTab('cart', null);
