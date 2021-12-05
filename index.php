@@ -15,6 +15,7 @@
   <script src="pages/registerPage/registerPage.js"></script>
   <script src="pages/cartPage/cartPage.js"></script>
   <script src="pages/checkoutPage/checkoutPage.js"></script>
+  <script src="pages/invoicePage/invoicePage.js"></script>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="pages/mainPage/mainPage.css">
   <link rel="stylesheet" href="pages/musicInfoPage/musicInfoPage.css">
@@ -187,7 +188,7 @@
       <div id='checkoutConfirmButton' class='buttons'>Confirm</div>
     </div>
     <div id="invoicePage">
-      <div id="invoiceHeading" class='checkoutPageHeadings'>Invoice Page</div>
+      <div id="invoiceHeading" class='pageHeadings'>Invoice Page</div>
       <div id="deliveryInfoArea">
         <div class='deliveryLine'>
           <div id='invoiceFullName' class='deliveryInfo'>
@@ -232,6 +233,9 @@
           </div>
         </div>
       </div>
+      <div id='invoiceDeliveryItem'></div>
+      <div id='finalWords'>Thanks for ordering. Your music will be delivered within 7 working days.</div>
+      <div id='okButton' class='buttons'>OK</div>
     </div>
     <div id="loading">
       Loading...

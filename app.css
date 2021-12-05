@@ -50,6 +50,13 @@ main {
   overflow: auto;
 }
 
+div#invoicePage {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  padding: 10px;
+  overflow: auto;
+}
+
 .pageHeader {
   height: 50px;
   background-color: var(--topbar-color);

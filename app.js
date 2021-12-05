@@ -121,6 +121,10 @@ $(document).ready(function() {
     confirmCheckout();
   })
 
+  $('#okButton').on('click', (event) => {
+    changeTab('main', null);
+  })
+
   $('.validation[data-error] input').on('input', (event) => {
     event.target.parentElement.removeAttribute('data-error');
   })

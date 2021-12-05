@@ -146,6 +146,8 @@ async function checkout() {
     $('#invoiceCountry > .devlieryValue').text(country);
     $('#invoiceZipCode > .devlieryValue').text(zipCode);
 
+    await getDeliveryInfoForInvoice();
+
     changeTab('invoicePage', null);
 
   }

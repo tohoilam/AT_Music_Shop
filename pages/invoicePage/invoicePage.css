@@ -1,0 +1,43 @@
+
+#deliveryInfoArea {
+  font-size: 1.2rem;
+  height: 150px;
+  padding: 10px 10px;
+  border-bottom: 1px solid black;
+}
+
+.deliveryInfo {
+  float: left;
+  padding-right: 30px;
+}
+
+.deliveryLabel {
+  float: left;
+  padding-right: 5px;
+  font-weight: bold;
+}
+
+.devlieryValue {
+  float: left;
+}
+
+.deliveryLine {
+  width: 100%;
+  clear: left;
+  padding: 5px 0px;
+}
+
+div#invoiceDeliveryItem {
+  padding-top: 10px;
+  border-bottom: 1px solid black;
+}
+
+#finalWords {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+#okButton {
+  margin: 20px auto;
+}
