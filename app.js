@@ -73,6 +73,29 @@ $(document).ready(function() {
     changeTab('signin', null);
   })
 
+  $('#logoutButton').on('click', async (event) => {
+    try {
+      let response = await fetch('utilities/logout.php');
+      if (response.status == 200) {
+        let data = await response.text();
+        if (data == 'done') {
+          $('#errorPage > h1').text('Logging out');
+          changeTab('errorPage', null);
+
+          setTimeout(() => {
+            changeTab('main', null);
+          }, 3000);
+        }
+      }
+      else {
+        alert('HTTP return status:', response.status);
+      }
+    }
+    catch (error) {
+      alert('Logout resulted in an Error!');
+    }
+  })
+
   $('#registerButton').on('click', (event) => {
     changeTab('register', null);
   })

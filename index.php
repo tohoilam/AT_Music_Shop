@@ -44,7 +44,7 @@
         <div id='cartButton' class='buttons floatRight'>Cart (0)</div>
         <div id='registerButton' class='buttons floatRight'>Register</div>
         <div id='signinButton' class='buttons floatRight'>Sign in</div>
-        <div id='logoutButton' class='buttons floatRight'><a href='utilities/logout.php'>Logout</a></div>
+        <div id='logoutButton' class='buttons floatRight'>Logout</div>
       </div>
     </div>
     <div id="mainPage">
