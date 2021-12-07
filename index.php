@@ -28,7 +28,7 @@
 </head>
 <body>
   <header>
-    <div id='shopName' class='floatLeft'>AT MUSIC SHOP</div>
+    <div id='shopName' class='floatLeft pointer'>AT MUSIC SHOP</div>
     <div id='courseAndName' class='floatRight'>
       <div id='course' class='floatRight'>COMP3322</div>
       <div id='nameAndUid' class='clearRight floatRight'>To Hoi Lam 3035667455</div>
@@ -253,7 +253,7 @@
       <div id='okButton' class='buttons'>OK</div>
     </div>
     <div id="loading">
-      Loading...
+      <h2>Loading...</h2>
     </div>
   </main>
 </body>

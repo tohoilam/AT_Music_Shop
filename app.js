@@ -152,6 +152,10 @@ $(document).ready(function() {
     event.target.parentElement.removeAttribute('data-error');
   })
 
+  $('#shopName').on('click', (event) => {
+    changeTab('main', null);
+  })
+
   $('.validation[data-error] input').focusout(async (event) => {
     let inputValue = event.target.value;
     let inputElement = event.target;

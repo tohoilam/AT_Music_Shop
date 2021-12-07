@@ -33,6 +33,7 @@
 
 .checkoutPageHeadings {
   font-size: 1.6rem;
+  color: var(--heading-color);
 }
 
 .iamAction {
@@ -95,6 +96,10 @@
 
 #zipCode {
   width: 80px;
+}
+
+#finalWords, #checkoutTotalPrice {
+  color: var(--heading-color);
 }
 
 @media only screen and (min-width: 451px) and (max-width: 610px) {
