@@ -1,0 +1,28 @@
+
+#cartArea {
+  width: calc(100% - 40px);
+  height: calc(100% - 35px - 30px - 20px);
+  margin: 0px 20px;
+}
+
+.cartItems {
+  width: calc(100% - 40px);
+  border-bottom: 1px solid black;
+  padding: 10px 20px;
+}
+
+.cartItemInfo {
+  padding: 5px 0px;
+}
+
+.cartTotalPrice {
+  height: 30px;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+
+.cartOverflowBox {
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 30px);
+}

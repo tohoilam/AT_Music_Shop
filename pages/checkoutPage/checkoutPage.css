@@ -1,0 +1,189 @@
+
+#section1 {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  display: inline-block;
+}
+
+#section2 {
+  width: 100%;
+  /* height: 360px; */
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+#section1Info {
+  width: 100%;
+}
+
+#or {
+  padding-right: 20px;
+}
+
+.sectionOneItem {
+  width: 300px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+#newCustomer {
+  width: 240px;
+}
+
+.checkoutPageHeadings {
+  font-size: 1.6rem;
+  color: var(--heading-color);
+}
+
+.iamAction {
+  margin-top: 20px;
+}
+
+#checkoutCreateAccount {
+  padding-top: 10px;
+  height: 120px;
+  width: 100%;
+}
+
+.checkoutFormItem {
+  height: 20px;
+  padding: 10px;
+}
+
+
+#yourOrderInfoSection {
+  width: 100%;
+  height: 70px;
+}
+
+#shipping {
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.checkoutCartItems {
+  padding: 5px 10px;
+}
+
+#checkoutTotalPrice {
+  font-weight: bold;
+  padding: 10px 0px;
+  padding-bottom: 30px;
+}
+
+.validation {
+  float: left;
+}
+
+.validation[data-error] input {
+  /* border-color: #c92432; */
+
+}
+
+.validation[data-error]::before {
+  content: attr(data-error);
+  display: block;
+  color: #c92432;
+  font-size: 0.8rem;
+  float: right;
+  padding-left: 3px;
+}
+
+#yourOrderHeading {
+  padding-top: 4px;
+}
+
+#zipCode {
+  width: 80px;
+}
+
+#finalWords, #checkoutTotalPrice {
+  color: var(--heading-color);
+}
+
+@media only screen and (min-width: 451px) and (max-width: 610px) {
+  .validation[data-error]::before {
+    font-size: 0.6rem;
+    padding-top: 5px;
+  }
+
+  .checkoutPageHeadings {
+    font-size: 1.4rem;
+  }
+
+  .checkoutFormItem input {
+    width: 130px;
+    font-size: 0.9rem;
+  }
+
+  .checkoutFormItem {
+    font-size: 0.9rem;
+  }
+
+  .checkoutCartItems {
+    font-size: 0.75rem;
+  }
+
+  #yourOrderHeading {
+    padding-top: 6px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .sectionOneItem {
+    height: 70px;
+  }
+
+  .validation[data-error]::before {
+    display: none;
+  }
+  .validation[data-error]::after {
+    content: attr(data-error);
+    display: block;
+    color: #c92432;
+    float: right;
+    font-size: 0.6rem;
+    padding-top: 0px;
+  }
+
+  .checkoutPageHeadings {
+    font-size: 1.2rem;
+  }
+
+  .checkoutFormItem input {
+    width: 120px;
+    height: 10px;
+    font-size: 0.7rem;
+  }
+
+  .checkoutFormItem {
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+
+  .checkoutCartItems {
+    font-size: 0.5rem;
+    padding: 5px 5px;
+  }
+
+  .iamAction {
+    font-size: 0.8rem;
+  }
+
+  #or {
+    padding-right: 40px;
+  }
+
+  #checkoutCreateAccount {
+    height: 80px;
+  }
+
+  #shipping, #checkoutTotalPrice {
+    font-size: 0.8rem;
+  }
+
+  #yourOrderHeading {
+    padding-top: 8px;
+  }
+}

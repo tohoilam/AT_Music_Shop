@@ -1,0 +1,236 @@
+:root {
+  --background-color: #f8f7f3;
+  --topbar-color: #624838;
+  --second-color: #3c2a1d;
+  --heading-color: rgb(134, 40, 12);
+  --sidebar-color: #d6bfa8;
+  /* --subtab-color: #cecac3; */
+  --main-color: #d8cdbe;
+  --lightblue-font: #d6bfa8;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--topbar-color);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  height: 40px;
+  background-color: var(--topbar-color);
+  color: var(--lightblue-font);
+  box-shadow: 0px 5px 10px #888888;
+}
+
+main {
+  height: calc(100vh - 40px);
+  width: 100%;
+}
+
+#topBar {
+  height: 80px;
+  width: 100%;
+  background-color: var(--second-color);
+  position: relative;
+  box-shadow: 0px 2px 5px #888888;
+}
+
+#mainPage {
+  height: calc(100% - 80px);
+}
+
+#musicInfoPage {
+  height: calc(100% - 80px);
+}
+
+#cartPage {
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+#checkoutPage {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  padding: 20px;
+  overflow: auto;
+}
+
+div#invoicePage {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  padding: 10px;
+  overflow: auto;
+}
+
+#loginPage {
+  width: calc(100% - 20px);
+  height: calc(100% - 100px);
+  padding: 10px;
+  overflow: auto;
+}
+
+#createAccountPage {
+  width: calc(100% - 20px);
+  height: calc(100% - 100px);
+  padding: 10px;
+  overflow: auto;
+}
+
+#musicInfoPage {
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+.pageHeader {
+  height: 50px;
+  background-color: var(--subtab-color);
+}
+
+#buttonsMenu {
+  width: 100%;
+  height: 40px;
+}
+
+.buttons {
+  cursor: pointer;
+  margin: 10px;
+  border: 1px solid black;
+  background-color: var(--main-color);
+  height: 16px;
+  width: 60px;
+  text-align: center;
+  font-size: 0.75rem;
+  padding-top: 2px;
+  box-shadow: 0px 0px 2px #464646;
+  color: var(--second-color);
+  border-radius: 3px;
+}
+
+.buttons:hover {
+  font-weight: bold;
+}
+
+#searchBar {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 2px 50px;
+}
+
+#searchInput {
+  width: calc(100% - 110px);
+  margin: 8px 10px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.pageHeadings {
+  font-size: 1.7rem;
+  color: var(--heading-color);
+  height: 35px;
+  padding-left: 5px;
+}
+
+#searchButton {
+  margin: 8px 10px;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.clearLeft {
+  clear: left;
+}
+
+.clearRight {
+  clear: right;
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.displayNone {
+  display: none;
+}
+
+.overflowBox {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+
+#shopName {
+  font-size: 1.6rem;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+#courseAndName {
+  font-size: 0.8rem;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+
+#errorPage > h1 {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 50px;
+}
+
+#loading > h2 {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 50px;
+}
+
+@media only screen and (min-width: 660px) {
+  #musicInfoPage {
+    width: calc(100% - 40px);
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 960px) {
+  .pageHeadings {
+    font-size: 1.5rem;
+  }
+
+  #searchBar {
+    padding: 2px 25px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .pageHeadings {
+    font-size: 1.1rem;
+    height: 25px;
+  }
+
+  #searchBar {
+    padding: 2px 10px;
+  }
+
+  #courseAndName {
+    font-size: 0.4rem;
+    padding-top: 15px;
+  }
+}

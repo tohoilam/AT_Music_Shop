@@ -1,0 +1,51 @@
+
+#musicInfoPageHeading {
+
+}
+
+#musicInfoPageArea {
+  height: calc(100% - 70px);
+  box-sizing: border-box;
+  margin: 10px;
+  overflow: auto;
+}
+
+#infoMusicName {
+  color: var(--topbar-color);
+}
+
+#infoMusicImageBox {
+  height: 200px;
+  margin: 20px;
+  margin-bottom: 0px;
+}
+
+#addToCard {
+  height: 40px;
+}
+
+#infoMusicImageBox > img {
+  height: 100%;
+  width: auto;
+}
+
+#addToCartSubmit {
+  width: 80px;
+  margin-top: 0px;
+}
+
+#inputQuantity {
+  width: 100px;
+}
+
+audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-panel {
+  background-color: var(--background-color);
+}
+
+.infoMusicInfoItems {
+  margin: 10px 0px;
+}
+
+#infoPrice {
+  font-weight: bold;
+}

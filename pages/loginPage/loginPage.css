@@ -1,0 +1,45 @@
+#loginHeading, #registerHeading {
+  text-align: center;
+}
+
+#loginUsername, #loginPassword, #registerUsername, #registerPassword {
+  width: calc(100% - 160px);
+  height: 25px;
+  margin: 10px 80px;
+  font-size: 1.1rem;
+}
+
+input[type="submit"] {
+  height: 20px; 
+  width: 62px;
+  font: inherit;
+  font-size: 0.75rem;
+  margin-left: 80px;
+  padding-top: 0px;
+	color: inherit;
+	border: 1px solid black;
+	outline: inherit;
+}
+
+
+@media only screen and (min-width: 451px) and (max-width: 960px) {
+  #loginUsername, #loginPassword, #registerUsername, #registerPassword {
+    width: calc(100% - 80px);
+    margin: 10px 40px;
+  }
+
+  input[type="submit"] {
+    margin-left: 40px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #loginUsername, #loginPassword, #registerUsername, #registerPassword {
+    width: calc(100% - 20px);
+    margin: 10px 10px;
+  }
+
+  input[type="submit"] {
+    margin-left: 10px;
+  }
+}
